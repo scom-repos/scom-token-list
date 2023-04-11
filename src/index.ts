@@ -11,8 +11,7 @@ import {
 import {
   DefaultERC20Tokens,
   ChainNativeTokenByChainId,
-  DefaultTokens,
-  CoreContractAddressesByChainId
+  DefaultTokens
 } from './tokens/index';
 import assets from './assets';
 
@@ -28,7 +27,6 @@ export {
   isWalletConnected,
   DefaultERC20Tokens,
   ChainNativeTokenByChainId,
-  CoreContractAddressesByChainId,
   tokenStore,
   setTokenStore,
   assets

@@ -1,6 +1,6 @@
 import { BigNumber, Contracts, IWallet, Wallet } from '@ijstech/eth-wallet';
 import { ITokenObject, TokenMapType } from './interface';
-import { getChainId, getChainNativeToken, getDefaultChainId, getGovToken, getUserTokens } from './utils';
+import { getChainId, getChainNativeToken, getUserTokens } from './utils';
 
 export type DefaultTokensByChainType = Record<number, ITokenObject[]>;
 
@@ -10,13 +10,10 @@ export class TokenStore {
   private _defaultTokensByChain: DefaultTokensByChainType;
   private _tokenBalances: TokenBalancesType;
   private _tokenMap: TokenMapType;
-  private _projectToken?: ITokenObject;
-  private _govToken?: ITokenObject;
 
   constructor(defaultTokensByChain: DefaultTokensByChainType) {
     this._defaultTokensByChain = defaultTokensByChain;
-    const defaultChainId = getDefaultChainId();
-    this._tokenMap = this._updateTokenMapData(defaultChainId);
+    this._tokenMap = this._updateTokenMapData(Wallet.getInstance().chainId);
   }
 
   public get tokenBalances() {
@@ -27,16 +24,9 @@ export class TokenStore {
     return this._tokenMap;
   }
 
-  public get projectToken() {
-    return this._projectToken;
-  }
-
-  public get govToken() {
-    return this._govToken;
-  }
-
   public getTokenList(chainId: number) {
-    const tokenList = [...(this._defaultTokensByChain[chainId] || [])];
+    if (!chainId) return [];
+    const tokenList = [...this._defaultTokensByChain[chainId]];
     const userCustomTokens = getUserTokens(chainId);
     if (userCustomTokens) {
       userCustomTokens.forEach(v => tokenList.push({...v, isNew: false, isCustom: true}));
@@ -60,22 +50,14 @@ export class TokenStore {
     }
     return balance;
   }
-
-  public getProjectTokenBalance(): string {
-    let balance = '0';
-    if (this._projectToken && this._projectToken.address && this._tokenBalances) {
-      balance = this._tokenBalances[this._projectToken.address.toLowerCase()];
-    }
-    return balance;
-  }
-
+  
   private async _updateAllTokenBalances(erc20TokenList: ITokenObject[], nativeToken: ITokenObject): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
     try {
       const wallet = Wallet.getClientInstance();
       const erc20 = new Contracts.ERC20(wallet);
       const data = wallet.encodeFunctionCall(erc20, 'balanceOf', [wallet.address]);
-      const result = await wallet.multiCall(erc20TokenList.map(v => {
+      const result = await wallet.multiCall(erc20TokenList.map((v: any) => {
         return {
           to: v.address,
           data
@@ -116,7 +98,7 @@ export class TokenStore {
     let allTokenBalancesMap: TokenBalancesType = {};
     const tokenList = this.getTokenList(wallet.chainId);
     if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
-    const nativeToken = tokenList.find(v => !v.address);
+    const nativeToken: any = tokenList.find(v => !v.address);
     const erc20TokenList = tokenList.filter(v => !!v.address);
     allTokenBalancesMap = await this._updateAllTokenBalances(erc20TokenList, nativeToken);
     this._tokenBalances = allTokenBalancesMap;
@@ -137,12 +119,6 @@ export class TokenStore {
 
   private _updateTokenMapData(chainId: number): TokenMapType {
     let allTokensMap: TokenMapType = {};
-    let govToken = getGovToken(chainId);
-    let GovTokenObj;
-    if (govToken && govToken.address) {
-      GovTokenObj = {...govToken, address: govToken.address.toLowerCase()};
-      allTokensMap[GovTokenObj.address] = GovTokenObj;
-    }
     if (this._defaultTokensByChain[chainId]) {
       let defaultTokenList = this._defaultTokensByChain[chainId].sort((a, b) => {
         if (a.symbol.toLowerCase() < b.symbol.toLowerCase()) { return -1; }
@@ -160,11 +136,6 @@ export class TokenStore {
       if (userCustomTokens) {
         userCustomTokens.forEach(v => allTokensMap[v.address] = {...v, isCustom: true});
       }
-      let stakeToken = defaultTokenList.find(v => v.symbol == 'OSWAP');
-      this._projectToken = stakeToken ? { ...stakeToken, address: stakeToken.address!.toLowerCase() } : null;
-
-      if (GovTokenObj)
-        this._govToken = allTokensMap[GovTokenObj.address];
     }
     return allTokensMap;
   }
