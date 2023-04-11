@@ -33,5 +33,6 @@ function tokenPath(tokenObj?: ITokenObject, chainId?: number): string {
 }
 export default {
   fullPath,
-  tokenPath
+  tokenPath,
+  fallbackUrl: fullPath('img/tokens/Custom.png')
 };

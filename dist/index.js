@@ -3125,15 +3125,62 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
     }
     exports.TokenStore = TokenStore;
 });
-define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/tokens/index.ts", "@scom/scom-token-list/token.ts", "@scom/scom-token-list/tokens/index.ts"], function (require, exports, index_4, token_1, index_5) {
+define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/components"], function (require, exports, components_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.CoreContractAddressesByChainId = exports.DefaultTokens = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.setTokenStore = exports.tokenStore = void 0;
-    exports.tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
-    const setTokenStore = () => exports.tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
+    const moduleDir = components_1.application.currentModuleDir;
+    function fullPath(path) {
+        return `${moduleDir}/${path}`;
+    }
+    const TokenFolderName = {
+        1: "ethereum",
+        25: "cronos",
+        42: "kovan",
+        56: "bsc",
+        97: "bsc-testnet",
+        137: "polygon",
+        338: "cronos-testnet",
+        31337: "amino",
+        80001: "mumbai",
+        43113: "fuji",
+        43114: "avalanche",
+        250: "fantom",
+        4002: "fantom-testnet",
+        13370: "aminox-testnet"
+    };
+    function tokenPath(tokenObj, chainId) {
+        const pathPrefix = 'img/tokens';
+        if (tokenObj && chainId >= 0) {
+            let folderName = TokenFolderName[chainId];
+            let fileName = (!tokenObj.isNative ? tokenObj.address.toLowerCase() : tokenObj.symbol) + '.png';
+            return fullPath(`${pathPrefix}/${folderName}/${fileName}`);
+        }
+        else {
+            return fullPath(`${pathPrefix}/Custom.png`);
+        }
+    }
+    exports.default = {
+        fullPath,
+        tokenPath,
+        fallbackUrl: fullPath('img/tokens/Custom.png')
+    };
+});
+define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/token.ts", "@scom/scom-token-list/utils.ts", "@scom/scom-token-list/tokens/index.ts", "@scom/scom-token-list/assets.ts"], function (require, exports, token_1, utils_2, index_4, assets_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.assets = exports.setTokenStore = exports.tokenStore = exports.CoreContractAddressesByChainId = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.isWalletConnected = exports.getChainId = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = exports.hasMetaMask = void 0;
+    Object.defineProperty(exports, "hasMetaMask", { enumerable: true, get: function () { return utils_2.hasMetaMask; } });
+    Object.defineProperty(exports, "hasUserToken", { enumerable: true, get: function () { return utils_2.hasUserToken; } });
+    Object.defineProperty(exports, "setUserTokens", { enumerable: true, get: function () { return utils_2.setUserTokens; } });
+    Object.defineProperty(exports, "getChainId", { enumerable: true, get: function () { return utils_2.getChainId; } });
+    Object.defineProperty(exports, "isWalletConnected", { enumerable: true, get: function () { return utils_2.isWalletConnected; } });
+    Object.defineProperty(exports, "addUserTokens", { enumerable: true, get: function () { return utils_2.addUserTokens; } });
+    Object.defineProperty(exports, "DefaultERC20Tokens", { enumerable: true, get: function () { return index_4.DefaultERC20Tokens; } });
+    Object.defineProperty(exports, "ChainNativeTokenByChainId", { enumerable: true, get: function () { return index_4.ChainNativeTokenByChainId; } });
+    Object.defineProperty(exports, "CoreContractAddressesByChainId", { enumerable: true, get: function () { return index_4.CoreContractAddressesByChainId; } });
+    exports.assets = assets_1.default;
+    let tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
+    exports.tokenStore = tokenStore;
+    const setTokenStore = () => exports.tokenStore = tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
     exports.setTokenStore = setTokenStore;
-    Object.defineProperty(exports, "DefaultERC20Tokens", { enumerable: true, get: function () { return index_5.DefaultERC20Tokens; } });
-    Object.defineProperty(exports, "ChainNativeTokenByChainId", { enumerable: true, get: function () { return index_5.ChainNativeTokenByChainId; } });
-    Object.defineProperty(exports, "DefaultTokens", { enumerable: true, get: function () { return index_5.DefaultTokens; } });
-    Object.defineProperty(exports, "CoreContractAddressesByChainId", { enumerable: true, get: function () { return index_5.CoreContractAddressesByChainId; } });
 });
