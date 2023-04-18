@@ -2757,7 +2757,7 @@ define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/compo
 define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/token.ts", "@scom/scom-token-list/utils.ts", "@scom/scom-token-list/tokens/index.ts", "@scom/scom-token-list/assets.ts"], function (require, exports, token_1, utils_2, index_4, assets_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.isWalletConnected = exports.getChainId = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = exports.hasMetaMask = void 0;
+    exports.DefaultTokens = exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.isWalletConnected = exports.getChainId = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = exports.hasMetaMask = void 0;
     Object.defineProperty(exports, "hasMetaMask", { enumerable: true, get: function () { return utils_2.hasMetaMask; } });
     Object.defineProperty(exports, "hasUserToken", { enumerable: true, get: function () { return utils_2.hasUserToken; } });
     Object.defineProperty(exports, "setUserTokens", { enumerable: true, get: function () { return utils_2.setUserTokens; } });
@@ -2766,6 +2766,7 @@ define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/to
     Object.defineProperty(exports, "addUserTokens", { enumerable: true, get: function () { return utils_2.addUserTokens; } });
     Object.defineProperty(exports, "DefaultERC20Tokens", { enumerable: true, get: function () { return index_4.DefaultERC20Tokens; } });
     Object.defineProperty(exports, "ChainNativeTokenByChainId", { enumerable: true, get: function () { return index_4.ChainNativeTokenByChainId; } });
+    Object.defineProperty(exports, "DefaultTokens", { enumerable: true, get: function () { return index_4.DefaultTokens; } });
     exports.assets = assets_1.default;
     let tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
     exports.tokenStore = tokenStore;

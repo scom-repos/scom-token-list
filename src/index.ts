@@ -29,5 +29,6 @@ export {
   ChainNativeTokenByChainId,
   tokenStore,
   setTokenStore,
-  assets
+  assets,
+  DefaultTokens
 }
