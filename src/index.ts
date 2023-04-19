@@ -11,7 +11,10 @@ import {
 import {
   DefaultERC20Tokens,
   ChainNativeTokenByChainId,
-  DefaultTokens
+  DefaultTokens,
+  WETHByChainId,
+  ToUSDPriceFeedAddressesMap,
+  tokenPriceAMMReference
 } from './tokens/index';
 import assets from './assets';
 
@@ -30,5 +33,8 @@ export {
   tokenStore,
   setTokenStore,
   assets,
-  DefaultTokens
+  DefaultTokens,
+  WETHByChainId,
+  ToUSDPriceFeedAddressesMap,
+  tokenPriceAMMReference,
 }
