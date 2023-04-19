@@ -2738,26 +2738,30 @@ define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/compo
         13370: "aminox-testnet"
     };
     function tokenPath(tokenObj, chainId) {
+        return fullPath(getTokenIconPath(tokenObj, chainId));
+    }
+    const getTokenIconPath = (tokenObj, chainId) => {
         const pathPrefix = 'img/tokens';
         if (tokenObj && chainId >= 0) {
             let folderName = TokenFolderName[chainId];
             let fileName = (!tokenObj.isNative ? tokenObj.address.toLowerCase() : tokenObj.symbol) + '.png';
-            return fullPath(`${pathPrefix}/${folderName}/${fileName}`);
+            return `${pathPrefix}/${folderName}/${fileName}`;
         }
         else {
-            return fullPath(`${pathPrefix}/Custom.png`);
+            return `${pathPrefix}/Custom.png`;
         }
-    }
+    };
     exports.default = {
         fullPath,
         tokenPath,
+        getTokenIconPath,
         fallbackUrl: fullPath('img/tokens/Custom.png')
     };
 });
 define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/token.ts", "@scom/scom-token-list/utils.ts", "@scom/scom-token-list/tokens/index.ts", "@scom/scom-token-list/assets.ts"], function (require, exports, token_1, utils_2, index_4, assets_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.DefaultTokens = exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.isWalletConnected = exports.getChainId = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = exports.hasMetaMask = void 0;
+    exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.WETHByChainId = exports.DefaultTokens = exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.isWalletConnected = exports.getChainId = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = exports.hasMetaMask = void 0;
     Object.defineProperty(exports, "hasMetaMask", { enumerable: true, get: function () { return utils_2.hasMetaMask; } });
     Object.defineProperty(exports, "hasUserToken", { enumerable: true, get: function () { return utils_2.hasUserToken; } });
     Object.defineProperty(exports, "setUserTokens", { enumerable: true, get: function () { return utils_2.setUserTokens; } });
@@ -2767,6 +2771,9 @@ define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/to
     Object.defineProperty(exports, "DefaultERC20Tokens", { enumerable: true, get: function () { return index_4.DefaultERC20Tokens; } });
     Object.defineProperty(exports, "ChainNativeTokenByChainId", { enumerable: true, get: function () { return index_4.ChainNativeTokenByChainId; } });
     Object.defineProperty(exports, "DefaultTokens", { enumerable: true, get: function () { return index_4.DefaultTokens; } });
+    Object.defineProperty(exports, "WETHByChainId", { enumerable: true, get: function () { return index_4.WETHByChainId; } });
+    Object.defineProperty(exports, "ToUSDPriceFeedAddressesMap", { enumerable: true, get: function () { return index_4.ToUSDPriceFeedAddressesMap; } });
+    Object.defineProperty(exports, "tokenPriceAMMReference", { enumerable: true, get: function () { return index_4.tokenPriceAMMReference; } });
     exports.assets = assets_1.default;
     let tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
     exports.tokenStore = tokenStore;
