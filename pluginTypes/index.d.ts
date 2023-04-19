@@ -410,6 +410,7 @@ declare module "@scom/scom-token-list/assets.ts" {
     const _default: {
         fullPath: typeof fullPath;
         tokenPath: typeof tokenPath;
+        getTokenIconPath: (tokenObj?: any, chainId?: number) => string;
         fallbackUrl: string;
     };
     export default _default;
@@ -418,9 +419,9 @@ declare module "@scom/scom-token-list/assets.ts" {
 declare module "@scom/scom-token-list" {
     import { TokenStore } from "@scom/scom-token-list/token.ts";
     import { hasMetaMask, hasUserToken, setUserTokens, getChainId, isWalletConnected, addUserTokens } from "@scom/scom-token-list/utils.ts";
-    import { DefaultERC20Tokens, ChainNativeTokenByChainId, DefaultTokens } from "@scom/scom-token-list/tokens/index.ts";
+    import { DefaultERC20Tokens, ChainNativeTokenByChainId, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference } from "@scom/scom-token-list/tokens/index.ts";
     import assets from "@scom/scom-token-list/assets.ts";
     let tokenStore: TokenStore;
     const setTokenStore: () => TokenStore;
-    export { hasMetaMask, hasUserToken, setUserTokens, addUserTokens, getChainId, isWalletConnected, DefaultERC20Tokens, ChainNativeTokenByChainId, tokenStore, setTokenStore, assets, DefaultTokens };
+    export { hasMetaMask, hasUserToken, setUserTokens, addUserTokens, getChainId, isWalletConnected, DefaultERC20Tokens, ChainNativeTokenByChainId, tokenStore, setTokenStore, assets, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference };
 }
