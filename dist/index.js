@@ -2171,6 +2171,12 @@ define("@scom/scom-token-list/tokens/testnet/fuji.ts", ["require", "exports"], f
             "address": "0xA269756ccf60766FB311BeE71c07F53Af1d15bDE",
             "symbol": "USDC",
             "decimals": 6
+        },
+        {
+            "name": "$SCOM",
+            "address": "0xf5debAAcB2Df6854D16BFD51cC12E5c0C4a51Ba9",
+            "symbol": "$SCOM",
+            "decimals": 18
         }
     ];
 });
