@@ -2594,7 +2594,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             if (!chainId)
                 return [];
             const tokenList = [...this._defaultTokensByChain[chainId]];
-            const userCustomTokens = utils_1.getUserTokens(chainId);
+            const userCustomTokens = (0, utils_1.getUserTokens)(chainId);
             if (userCustomTokens) {
                 userCustomTokens.forEach(v => tokenList.push(Object.assign(Object.assign({}, v), { isNew: false, isCustom: true })));
             }
@@ -2622,6 +2622,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             try {
                 const wallet = eth_wallet_2.Wallet.getClientInstance();
                 const erc20 = new eth_wallet_2.Contracts.ERC20(wallet);
+                await wallet.init(); //FIXME: this is a workaround until encodeFunctionCall gets rid of web3.js
                 const data = wallet.encodeFunctionCall(erc20, 'balanceOf', [wallet.address]);
                 const result = await wallet.multiCall(erc20TokenList.map((v) => {
                     return {
@@ -2678,7 +2679,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             let tokenBalancesMap = {};
             if (!wallet.chainId)
                 return tokenBalancesMap;
-            const nativeToken = utils_1.getChainNativeToken(wallet.chainId);
+            const nativeToken = (0, utils_1.getChainNativeToken)(wallet.chainId);
             tokenBalancesMap = await this._updateAllTokenBalances(erc20TokenList, nativeToken);
             for (let tokenAddress of Object.keys(tokenBalancesMap)) {
                 this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
@@ -2704,7 +2705,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
                     else
                         allTokensMap[defaultTokenItem.symbol] = defaultTokenItem;
                 }
-                const userCustomTokens = utils_1.getUserTokens(chainId);
+                const userCustomTokens = (0, utils_1.getUserTokens)(chainId);
                 if (userCustomTokens) {
                     userCustomTokens.forEach(v => allTokensMap[v.address] = Object.assign(Object.assign({}, v), { isCustom: true }));
                 }
@@ -2712,7 +2713,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             return allTokensMap;
         }
         updateTokenMapData() {
-            let chainId = utils_1.getChainId();
+            let chainId = (0, utils_1.getChainId)();
             let allTokensMap = this._updateTokenMapData(chainId);
             this._tokenMap = allTokensMap;
             return allTokensMap;

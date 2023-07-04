@@ -56,6 +56,7 @@ export class TokenStore {
     try {
       const wallet = Wallet.getClientInstance();
       const erc20 = new Contracts.ERC20(wallet);
+      await wallet.init(); //FIXME: this is a workaround until encodeFunctionCall gets rid of web3.js
       const data = wallet.encodeFunctionCall(erc20, 'balanceOf', [wallet.address]);
       const result = await wallet.multiCall(erc20TokenList.map((v: any) => {
         return {
