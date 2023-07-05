@@ -2390,35 +2390,35 @@ define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/sc
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getOpenSwapToken = exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.DefaultTokens = exports.WETHByChainId = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = void 0;
     const DefaultERC20Tokens = {
-        1: index_1.Tokens_Ethereuem,
-        25: index_1.Tokens_Cronos,
-        56: index_1.Tokens_BSC,
-        97: index_2.Tokens_BSC_Testnet,
-        137: index_1.Tokens_Polygon,
-        338: index_2.Tokens_Cronos_Testnet,
-        31337: index_2.Tokens_Amino,
-        80001: index_2.Tokens_Mumbai,
-        43113: index_2.Tokens_Fuji,
-        43114: index_1.Tokens_Avalanche,
-        250: index_1.Tokens_Fantom,
-        4002: index_2.Tokens_Fantom_Testnet,
-        13370: index_2.Tokens_AminoXTestnet
+        1: index_1.Tokens_Ethereuem.map(v => (Object.assign(Object.assign({}, v), { chainId: 1 }))),
+        25: index_1.Tokens_Cronos.map(v => (Object.assign(Object.assign({}, v), { chainId: 25 }))),
+        56: index_1.Tokens_BSC.map(v => (Object.assign(Object.assign({}, v), { chainId: 56 }))),
+        97: index_2.Tokens_BSC_Testnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 97 }))),
+        137: index_1.Tokens_Polygon.map(v => (Object.assign(Object.assign({}, v), { chainId: 137 }))),
+        338: index_2.Tokens_Cronos_Testnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 338 }))),
+        31337: index_2.Tokens_Amino.map(v => (Object.assign(Object.assign({}, v), { chainId: 31337 }))),
+        80001: index_2.Tokens_Mumbai.map(v => (Object.assign(Object.assign({}, v), { chainId: 80001 }))),
+        43113: index_2.Tokens_Fuji.map(v => (Object.assign(Object.assign({}, v), { chainId: 43113 }))),
+        43114: index_1.Tokens_Avalanche.map(v => (Object.assign(Object.assign({}, v), { chainId: 43114 }))),
+        250: index_1.Tokens_Fantom.map(v => (Object.assign(Object.assign({}, v), { chainId: 250 }))),
+        4002: index_2.Tokens_Fantom_Testnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 4002 }))),
+        13370: index_2.Tokens_AminoXTestnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 13370 })))
     };
     exports.DefaultERC20Tokens = DefaultERC20Tokens;
     const ChainNativeTokenByChainId = {
-        1: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true },
-        25: { address: undefined, decimals: 18, symbol: "CRO", name: 'CRO', isNative: true },
-        56: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true },
-        97: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true },
-        137: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true },
-        338: { address: undefined, decimals: 18, symbol: "TCRO", name: 'TCRO', isNative: true },
-        31337: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true },
-        80001: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true },
-        43114: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true },
-        43113: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true },
-        250: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true },
-        4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true },
-        13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true }, //Amino X Testnet
+        1: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 1 },
+        25: { address: undefined, decimals: 18, symbol: "CRO", name: 'CRO', isNative: true, chainId: 25 },
+        56: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 56 },
+        97: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 97 },
+        137: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 137 },
+        338: { address: undefined, decimals: 18, symbol: "TCRO", name: 'TCRO', isNative: true, chainId: 338 },
+        31337: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 31337 },
+        80001: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 80001 },
+        43114: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43114 },
+        43113: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43113 },
+        250: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 250 },
+        4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 4002 },
+        13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 13370 }, //Amino X Testnet
     };
     exports.ChainNativeTokenByChainId = ChainNativeTokenByChainId;
     const WETHByChainId = Object.keys(DefaultERC20Tokens).reduce((result, key) => {
@@ -2499,7 +2499,7 @@ define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/sc
 define("@scom/scom-token-list/utils.ts", ["require", "exports", "@ijstech/eth-wallet", "@scom/scom-token-list/tokens/index.ts"], function (require, exports, eth_wallet_1, index_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getChainNativeToken = exports.addUserTokens = exports.getUserTokens = exports.hasUserToken = exports.setUserTokens = exports.hasMetaMask = exports.getChainId = exports.isWalletConnected = exports.state = exports.WalletPlugin = void 0;
+    exports.getChainNativeToken = exports.addUserTokens = exports.getUserTokens = exports.hasUserToken = exports.setUserTokens = exports.hasMetaMask = exports.isWalletConnected = exports.state = exports.WalletPlugin = void 0;
     const TOKENS = "oswap_user_tokens_";
     var WalletPlugin;
     (function (WalletPlugin) {
@@ -2514,10 +2514,6 @@ define("@scom/scom-token-list/utils.ts", ["require", "exports", "@ijstech/eth-wa
         return wallet.isConnected;
     }
     exports.isWalletConnected = isWalletConnected;
-    function getChainId() {
-        return eth_wallet_1.Wallet.getInstance().chainId;
-    }
-    exports.getChainId = getChainId;
     const hasMetaMask = function () {
         var _a;
         const wallet = eth_wallet_1.Wallet.getClientInstance();
@@ -2553,8 +2549,7 @@ define("@scom/scom-token-list/utils.ts", ["require", "exports", "@ijstech/eth-wa
         return tokens.length ? tokens : null;
     };
     exports.getUserTokens = getUserTokens;
-    const addUserTokens = (token) => {
-        const chainId = getChainId();
+    const addUserTokens = (chainId, token) => {
         let tokens = localStorage[TOKENS + chainId];
         let i = -1;
         if (tokens) {
@@ -2582,7 +2577,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
     class TokenStore {
         constructor(defaultTokensByChain) {
             this._defaultTokensByChain = defaultTokensByChain;
-            this._tokenMap = this._updateTokenMapData(eth_wallet_2.Wallet.getInstance().chainId);
+            // this._tokenMap = this._updateTokenMapData(Wallet.getInstance().chainId);
         }
         get tokenBalances() {
             return this._tokenBalances;
@@ -2617,10 +2612,9 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             }
             return balance;
         }
-        async _updateAllTokenBalances(erc20TokenList, nativeToken) {
+        async _updateAllTokenBalances(wallet, erc20TokenList, nativeToken) {
             let allTokenBalancesMap = {};
             try {
-                const wallet = eth_wallet_2.Wallet.getClientInstance();
                 const erc20 = new eth_wallet_2.Contracts.ERC20(wallet);
                 await wallet.init(); //FIXME: this is a workaround until encodeFunctionCall gets rid of web3.js
                 const data = wallet.encodeFunctionCall(erc20, 'balanceOf', [wallet.address]);
@@ -2637,7 +2631,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
                             allTokenBalancesMap[token.address.toLowerCase()] = new eth_wallet_2.BigNumber(result.results[i]).shiftedBy(-token.decimals).toFixed();
                         }
                     }
-                    let balance = (await eth_wallet_2.Wallet.getClientInstance().balance).toFixed();
+                    let balance = (await wallet.balance).toFixed();
                     allTokenBalancesMap[nativeToken.symbol] = balance;
                 }
                 else {
@@ -2650,7 +2644,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
                                 allTokenBalancesMap[token.address.toLowerCase()] = new eth_wallet_2.BigNumber(balance).shiftedBy(-token.decimals).toFixed();
                             }
                             else {
-                                let balance = await eth_wallet_2.Wallet.getClientInstance().balance;
+                                let balance = await wallet.balance;
                                 allTokenBalancesMap[token.symbol] = balance.toFixed();
                             }
                         }
@@ -2662,25 +2656,23 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             catch (error) { }
             return allTokenBalancesMap;
         }
-        async updateAllTokenBalances() {
-            const wallet = eth_wallet_2.Wallet.getClientInstance();
+        async updateAllTokenBalances(wallet) {
             let allTokenBalancesMap = {};
             const tokenList = this.getTokenList(wallet.chainId);
             if (!wallet.chainId || !tokenList)
                 return allTokenBalancesMap;
             const nativeToken = tokenList.find(v => !v.address);
             const erc20TokenList = tokenList.filter(v => !!v.address);
-            allTokenBalancesMap = await this._updateAllTokenBalances(erc20TokenList, nativeToken);
+            allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
             this._tokenBalances = allTokenBalancesMap;
             return this._tokenBalances;
         }
-        async updateTokenBalances(erc20TokenList) {
-            const wallet = eth_wallet_2.Wallet.getClientInstance();
+        async updateTokenBalances(wallet, erc20TokenList) {
             let tokenBalancesMap = {};
             if (!wallet.chainId)
                 return tokenBalancesMap;
             const nativeToken = (0, utils_1.getChainNativeToken)(wallet.chainId);
-            tokenBalancesMap = await this._updateAllTokenBalances(erc20TokenList, nativeToken);
+            tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
             for (let tokenAddress of Object.keys(tokenBalancesMap)) {
                 this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
             }
@@ -2712,8 +2704,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             }
             return allTokensMap;
         }
-        updateTokenMapData() {
-            let chainId = (0, utils_1.getChainId)();
+        updateTokenMapData(chainId) {
             let allTokensMap = this._updateTokenMapData(chainId);
             this._tokenMap = allTokensMap;
             return allTokensMap;
@@ -2768,11 +2759,10 @@ define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/compo
 define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/token.ts", "@scom/scom-token-list/utils.ts", "@scom/scom-token-list/tokens/index.ts", "@scom/scom-token-list/assets.ts"], function (require, exports, token_1, utils_2, index_4, assets_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.WETHByChainId = exports.DefaultTokens = exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.isWalletConnected = exports.getChainId = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = exports.hasMetaMask = void 0;
+    exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.WETHByChainId = exports.DefaultTokens = exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.isWalletConnected = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = exports.hasMetaMask = void 0;
     Object.defineProperty(exports, "hasMetaMask", { enumerable: true, get: function () { return utils_2.hasMetaMask; } });
     Object.defineProperty(exports, "hasUserToken", { enumerable: true, get: function () { return utils_2.hasUserToken; } });
     Object.defineProperty(exports, "setUserTokens", { enumerable: true, get: function () { return utils_2.setUserTokens; } });
-    Object.defineProperty(exports, "getChainId", { enumerable: true, get: function () { return utils_2.getChainId; } });
     Object.defineProperty(exports, "isWalletConnected", { enumerable: true, get: function () { return utils_2.isWalletConnected; } });
     Object.defineProperty(exports, "addUserTokens", { enumerable: true, get: function () { return utils_2.addUserTokens; } });
     Object.defineProperty(exports, "DefaultERC20Tokens", { enumerable: true, get: function () { return index_4.DefaultERC20Tokens; } });

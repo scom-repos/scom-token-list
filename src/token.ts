@@ -1,6 +1,6 @@
-import { BigNumber, Contracts, IWallet, Wallet } from '@ijstech/eth-wallet';
+import { BigNumber, Contracts, IClientWallet, IRpcWallet, IWallet, Wallet } from '@ijstech/eth-wallet';
 import { ITokenObject, TokenMapType } from './interface';
-import { getChainId, getChainNativeToken, getUserTokens } from './utils';
+import { getChainNativeToken, getUserTokens } from './utils';
 
 export type DefaultTokensByChainType = Record<number, ITokenObject[]>;
 
@@ -13,7 +13,7 @@ export class TokenStore {
 
   constructor(defaultTokensByChain: DefaultTokensByChainType) {
     this._defaultTokensByChain = defaultTokensByChain;
-    this._tokenMap = this._updateTokenMapData(Wallet.getInstance().chainId);
+    // this._tokenMap = this._updateTokenMapData(Wallet.getInstance().chainId);
   }
 
   public get tokenBalances() {
@@ -51,10 +51,9 @@ export class TokenStore {
     return balance;
   }
   
-  private async _updateAllTokenBalances(erc20TokenList: ITokenObject[], nativeToken: ITokenObject): Promise<TokenBalancesType> {
+  private async _updateAllTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[], nativeToken: ITokenObject): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
     try {
-      const wallet = Wallet.getClientInstance();
       const erc20 = new Contracts.ERC20(wallet);
       await wallet.init(); //FIXME: this is a workaround until encodeFunctionCall gets rid of web3.js
       const data = wallet.encodeFunctionCall(erc20, 'balanceOf', [wallet.address]);
@@ -71,7 +70,7 @@ export class TokenStore {
             allTokenBalancesMap[token.address.toLowerCase()] = new BigNumber(result.results[i]).shiftedBy(-token.decimals).toFixed()
           }
         }
-        let balance = (await Wallet.getClientInstance().balance).toFixed();
+        let balance = (await wallet.balance).toFixed();
         allTokenBalancesMap[nativeToken.symbol] = balance;
       }
       else {
@@ -83,7 +82,7 @@ export class TokenStore {
               let balance = await this.getERC20Balance(wallet, token.address);
               allTokenBalancesMap[token.address.toLowerCase()] = new BigNumber(balance).shiftedBy(-token.decimals).toFixed();
             } else {
-              let balance = await Wallet.getClientInstance().balance;
+              let balance = await wallet.balance;
               allTokenBalancesMap[token.symbol] = balance.toFixed();
             }
           } catch (error) { }
@@ -94,24 +93,22 @@ export class TokenStore {
     return allTokenBalancesMap;
   }
 
-  public async updateAllTokenBalances(): Promise<TokenBalancesType> {
-    const wallet = Wallet.getClientInstance();
+  public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
     const tokenList = this.getTokenList(wallet.chainId);
     if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
     const nativeToken: any = tokenList.find(v => !v.address);
     const erc20TokenList = tokenList.filter(v => !!v.address);
-    allTokenBalancesMap = await this._updateAllTokenBalances(erc20TokenList, nativeToken);
+    allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
     this._tokenBalances = allTokenBalancesMap;
     return this._tokenBalances;
   }
 
-  public async updateTokenBalances(erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
-    const wallet = Wallet.getClientInstance();
+  public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
     let tokenBalancesMap: TokenBalancesType = {};
     if (!wallet.chainId) return tokenBalancesMap;
     const nativeToken = getChainNativeToken(wallet.chainId);
-    tokenBalancesMap = await this._updateAllTokenBalances(erc20TokenList, nativeToken);
+    tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
     for (let tokenAddress of Object.keys(tokenBalancesMap)) {
       this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
     }
@@ -141,8 +138,7 @@ export class TokenStore {
     return allTokensMap;
   }
 
-  public updateTokenMapData(): TokenMapType {
-    let chainId = getChainId();
+  public updateTokenMapData(chainId: number): TokenMapType {
     let allTokensMap = this._updateTokenMapData(chainId);
     this._tokenMap = allTokensMap;
     return allTokensMap;

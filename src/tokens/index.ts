@@ -3,35 +3,35 @@ import { Tokens_Avalanche, Tokens_BSC, Tokens_Cronos, Tokens_Ethereuem, Tokens_F
 import { Tokens_Amino, Tokens_AminoXTestnet, Tokens_BSC_Testnet, Tokens_Cronos_Testnet, Tokens_Fantom_Testnet, Tokens_Fuji, Tokens_Mumbai } from "./testnet/index";
 
 const DefaultERC20Tokens: { [chainId: number]: ITokenObject[] } = {
-  1: Tokens_Ethereuem,
-  25: Tokens_Cronos,
-  56: Tokens_BSC,
-  97: Tokens_BSC_Testnet,
-  137: Tokens_Polygon,
-  338: Tokens_Cronos_Testnet,
-  31337: Tokens_Amino,
-  80001: Tokens_Mumbai,
-  43113: Tokens_Fuji,
-  43114: Tokens_Avalanche,
-  250: Tokens_Fantom,
-  4002: Tokens_Fantom_Testnet,
-  13370: Tokens_AminoXTestnet
+  1: Tokens_Ethereuem.map(v => ({ ...v, chainId: 1 })),
+  25: Tokens_Cronos.map(v => ({ ...v, chainId: 25 })),
+  56: Tokens_BSC.map(v => ({ ...v, chainId: 56 })),
+  97: Tokens_BSC_Testnet.map(v => ({ ...v, chainId: 97 })),
+  137: Tokens_Polygon.map(v => ({ ...v, chainId: 137 })),
+  338: Tokens_Cronos_Testnet.map(v => ({ ...v, chainId: 338 })),
+  31337: Tokens_Amino.map(v => ({ ...v, chainId: 31337 })),
+  80001: Tokens_Mumbai.map(v => ({ ...v, chainId: 80001 })),
+  43113: Tokens_Fuji.map(v => ({ ...v, chainId: 43113 })),
+  43114: Tokens_Avalanche.map(v => ({ ...v, chainId: 43114 })),
+  250: Tokens_Fantom.map(v => ({ ...v, chainId: 250 })),
+  4002: Tokens_Fantom_Testnet.map(v => ({ ...v, chainId: 4002 })),
+  13370: Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 }))
 }
 
 const ChainNativeTokenByChainId: { [chainId: number]: ITokenObject } = {
-  1: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true },
-  25: { address: undefined, decimals: 18, symbol: "CRO", name: 'CRO', isNative: true }, //cronos
-  56: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true }, // Binance Mainnet
-  97: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true }, // Binance Test Chain
-  137: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true }, //Polygon
-  338: { address: undefined, decimals: 18, symbol: "TCRO", name: 'TCRO', isNative: true }, //cronos
-  31337: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true }, //Amino Testnet
-  80001: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true }, //Mumbai, Polygon testnet
-  43114: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true }, //Avalanche Mainnet C-Chain
-  43113: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true },  //Avalanche FUJI C-Chain
-  250: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true }, // Fantom Opera
-  4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true }, // Fantom Testnet
-  13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true }, //Amino X Testnet
+  1: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 1 }, // Ethereum Mainnet
+  25: { address: undefined, decimals: 18, symbol: "CRO", name: 'CRO', isNative: true, chainId: 25 }, //cronos
+  56: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 56 }, // Binance Mainnet
+  97: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 97 }, // Binance Test Chain
+  137: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 137 }, //Polygon
+  338: { address: undefined, decimals: 18, symbol: "TCRO", name: 'TCRO', isNative: true, chainId: 338 }, //cronos
+  31337: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 31337 }, //Amino Testnet
+  80001: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 80001 }, //Mumbai, Polygon testnet
+  43114: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43114 }, //Avalanche Mainnet C-Chain
+  43113: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43113 },  //Avalanche FUJI C-Chain
+  250: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 250 }, // Fantom Opera
+  4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 4002 }, // Fantom Testnet
+  13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 13370 }, //Amino X Testnet
 }
 
 const WETHByChainId = Object.keys(DefaultERC20Tokens).reduce((result: {[chainId: number]: ITokenObject}, key: string) => {

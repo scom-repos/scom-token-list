@@ -1,6 +1,7 @@
 /// <amd-module name="@scom/scom-token-list/interface.ts" />
 declare module "@scom/scom-token-list/interface.ts" {
     export interface ITokenObject {
+        chainId: number;
         address?: string;
         name: string;
         decimals: number;
@@ -372,16 +373,16 @@ declare module "@scom/scom-token-list/utils.ts" {
         };
     };
     export function isWalletConnected(): boolean;
-    export function getChainId(): number;
     export const hasMetaMask: () => boolean;
     export const setUserTokens: (token: ITokenObject, chainId: number) => void;
     export const hasUserToken: (address: string, chainId: number) => boolean;
     export const getUserTokens: (chainId: number) => any[] | null;
-    export const addUserTokens: (token: ITokenObject) => void;
+    export const addUserTokens: (chainId: number, token: ITokenObject) => void;
     export const getChainNativeToken: (chainId: number) => ITokenObject;
 }
 /// <amd-module name="@scom/scom-token-list/token.ts" />
 declare module "@scom/scom-token-list/token.ts" {
+    import { IRpcWallet } from '@ijstech/eth-wallet';
     import { ITokenObject, TokenMapType } from "@scom/scom-token-list/interface.ts";
     export type DefaultTokensByChainType = Record<number, ITokenObject[]>;
     export type TokenBalancesType = Record<string, string>;
@@ -396,10 +397,10 @@ declare module "@scom/scom-token-list/token.ts" {
         private getERC20Balance;
         getTokenBalance(token: ITokenObject): string;
         private _updateAllTokenBalances;
-        updateAllTokenBalances(): Promise<TokenBalancesType>;
-        updateTokenBalances(erc20TokenList: ITokenObject[]): Promise<TokenBalancesType>;
+        updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType>;
+        updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType>;
         private _updateTokenMapData;
-        updateTokenMapData(): TokenMapType;
+        updateTokenMapData(chainId: number): TokenMapType;
     }
 }
 /// <amd-module name="@scom/scom-token-list/assets.ts" />
@@ -418,10 +419,11 @@ declare module "@scom/scom-token-list/assets.ts" {
 /// <amd-module name="@scom/scom-token-list" />
 declare module "@scom/scom-token-list" {
     import { TokenStore } from "@scom/scom-token-list/token.ts";
-    import { hasMetaMask, hasUserToken, setUserTokens, getChainId, isWalletConnected, addUserTokens } from "@scom/scom-token-list/utils.ts";
+    import { hasMetaMask, hasUserToken, setUserTokens, isWalletConnected, addUserTokens } from "@scom/scom-token-list/utils.ts";
     import { DefaultERC20Tokens, ChainNativeTokenByChainId, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference } from "@scom/scom-token-list/tokens/index.ts";
     import assets from "@scom/scom-token-list/assets.ts";
+    import { ITokenObject } from "@scom/scom-token-list/interface.ts";
     let tokenStore: TokenStore;
     const setTokenStore: () => TokenStore;
-    export { hasMetaMask, hasUserToken, setUserTokens, addUserTokens, getChainId, isWalletConnected, DefaultERC20Tokens, ChainNativeTokenByChainId, tokenStore, setTokenStore, assets, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference };
+    export { ITokenObject, hasMetaMask, hasUserToken, setUserTokens, addUserTokens, isWalletConnected, DefaultERC20Tokens, ChainNativeTokenByChainId, tokenStore, setTokenStore, assets, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference };
 }

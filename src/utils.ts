@@ -18,10 +18,6 @@ export function isWalletConnected() {
   return wallet.isConnected;
 }
 
-export function getChainId() {
-  return Wallet.getInstance().chainId;
-}
-
 export const hasMetaMask = function () {
   const wallet = Wallet.getClientInstance();
   return wallet?.clientSideProvider?.name === WalletPlugin.MetaMask;
@@ -53,8 +49,7 @@ export const getUserTokens:(chainId: number) => any[] | null = (chainId: number)
   return tokens.length ? tokens : null;
 }
 
-export const addUserTokens = (token: ITokenObject) => {
-  const chainId = getChainId();
+export const addUserTokens = (chainId: number, token: ITokenObject) => {
   let tokens = localStorage[TOKENS + chainId];
   let i = -1;
   if (tokens) {

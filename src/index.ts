@@ -4,7 +4,6 @@ import {
   hasMetaMask,
   hasUserToken,
   setUserTokens,
-  getChainId,
   isWalletConnected,
   addUserTokens
 } from './utils';
@@ -17,16 +16,17 @@ import {
   tokenPriceAMMReference
 } from './tokens/index';
 import assets from './assets';
+import { ITokenObject } from './interface';
 
 let tokenStore: TokenStore = new TokenStore(DefaultTokens);
 const setTokenStore = () => tokenStore = new TokenStore(DefaultTokens);
 
 export {
+  ITokenObject,
   hasMetaMask,
   hasUserToken,
   setUserTokens,
   addUserTokens,
-  getChainId,
   isWalletConnected,
   DefaultERC20Tokens,
   ChainNativeTokenByChainId,
