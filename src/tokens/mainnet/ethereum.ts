@@ -238,5 +238,11 @@ export const Tokens_Ethereuem = [
     "decimals": 18,
     "isCommon": true,
     "isWETH": true
+  },
+  {
+    "name": "SushiToken",
+    "address": "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2",
+    "symbol": "SUSHI",
+    "decimals": 18
   }
 ]
