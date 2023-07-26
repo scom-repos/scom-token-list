@@ -10,10 +10,10 @@ export class TokenStore {
   private _defaultTokensByChain: DefaultTokensByChainType;
   private _tokenBalances: TokenBalancesType;
   private _tokenMap: TokenMapType;
+  private _promiseMap: Record<string, Promise<any>> = {};
 
   constructor(defaultTokensByChain: DefaultTokensByChainType) {
     this._defaultTokensByChain = defaultTokensByChain;
-    // this._tokenMap = this._updateTokenMapData(Wallet.getInstance().chainId);
   }
 
   public get tokenBalances() {
@@ -95,13 +95,26 @@ export class TokenStore {
 
   public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
-    const tokenList = this.getTokenList(wallet.chainId);
-    if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
-    const nativeToken: any = tokenList.find(v => !v.address);
-    const erc20TokenList = tokenList.filter(v => !!v.address);
-    allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-    this._tokenBalances = allTokenBalancesMap;
-    return this._tokenBalances;
+    if (this._promiseMap[wallet.instanceId]) {
+      return this._promiseMap[wallet.instanceId];
+    }
+    let promise = new Promise<TokenBalancesType>(async (resolve, reject) => {
+      try {
+        const tokenList = this.getTokenList(wallet.chainId);
+        if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
+        const nativeToken: any = tokenList.find(v => !v.address);
+        const erc20TokenList = tokenList.filter(v => !!v.address);
+        allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
+        this._tokenBalances = allTokenBalancesMap;
+        this._promiseMap[wallet.instanceId] = null;
+        resolve(allTokenBalancesMap);
+      } catch (error) {
+        this._promiseMap[wallet.instanceId] = null;
+        reject(error);
+      }
+    })
+    this._promiseMap[wallet.instanceId] = promise;
+    return promise;
   }
 
   public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {

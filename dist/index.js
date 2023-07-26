@@ -2582,8 +2582,8 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
     exports.TokenStore = void 0;
     class TokenStore {
         constructor(defaultTokensByChain) {
+            this._promiseMap = {};
             this._defaultTokensByChain = defaultTokensByChain;
-            // this._tokenMap = this._updateTokenMapData(Wallet.getInstance().chainId);
         }
         get tokenBalances() {
             return this._tokenBalances;
@@ -2664,14 +2664,28 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
         }
         async updateAllTokenBalances(wallet) {
             let allTokenBalancesMap = {};
-            const tokenList = this.getTokenList(wallet.chainId);
-            if (!wallet.chainId || !tokenList)
-                return allTokenBalancesMap;
-            const nativeToken = tokenList.find(v => !v.address);
-            const erc20TokenList = tokenList.filter(v => !!v.address);
-            allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-            this._tokenBalances = allTokenBalancesMap;
-            return this._tokenBalances;
+            if (this._promiseMap[wallet.instanceId]) {
+                return this._promiseMap[wallet.instanceId];
+            }
+            let promise = new Promise(async (resolve, reject) => {
+                try {
+                    const tokenList = this.getTokenList(wallet.chainId);
+                    if (!wallet.chainId || !tokenList)
+                        return allTokenBalancesMap;
+                    const nativeToken = tokenList.find(v => !v.address);
+                    const erc20TokenList = tokenList.filter(v => !!v.address);
+                    allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
+                    this._tokenBalances = allTokenBalancesMap;
+                    this._promiseMap[wallet.instanceId] = null;
+                    resolve(allTokenBalancesMap);
+                }
+                catch (error) {
+                    this._promiseMap[wallet.instanceId] = null;
+                    reject(error);
+                }
+            });
+            this._promiseMap[wallet.instanceId] = promise;
+            return promise;
         }
         async updateTokenBalances(wallet, erc20TokenList) {
             let tokenBalancesMap = {};

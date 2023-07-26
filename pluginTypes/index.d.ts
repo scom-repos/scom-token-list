@@ -390,6 +390,7 @@ declare module "@scom/scom-token-list/token.ts" {
         private _defaultTokensByChain;
         private _tokenBalances;
         private _tokenMap;
+        private _promiseMap;
         constructor(defaultTokensByChain: DefaultTokensByChainType);
         get tokenBalances(): TokenBalancesType;
         get tokenMap(): TokenMapType;
