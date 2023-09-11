@@ -2594,7 +2594,9 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
     exports.TokenStore = void 0;
     class TokenStore {
         constructor(defaultTokensByChain) {
+            this._tokenBalances = {}; //FIXME: To be removed
             this._tokenBalancesByChainId = {};
+            this._tokenMap = {}; //FIXME: To be removed
             this._tokenMapByChainId = {};
             this._promiseMap = {};
             this._defaultTokensByChain = defaultTokensByChain;

@@ -8,9 +8,9 @@ export type TokenBalancesType = Record<string, string>;
 
 export class TokenStore {
   private _defaultTokensByChain: DefaultTokensByChainType;
-  private _tokenBalances: TokenBalancesType; //FIXME: To be removed
+  private _tokenBalances: TokenBalancesType = {}; //FIXME: To be removed
   private _tokenBalancesByChainId: Record<number, TokenBalancesType> = {};
-  private _tokenMap: TokenMapType; //FIXME: To be removed
+  private _tokenMap: TokenMapType = {}; //FIXME: To be removed
   private _tokenMapByChainId: Record<number, TokenMapType> = {};
   private _promiseMap: Record<string, Promise<any>> = {};
 
