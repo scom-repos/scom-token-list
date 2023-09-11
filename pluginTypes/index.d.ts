@@ -389,11 +389,15 @@ declare module "@scom/scom-token-list/token.ts" {
     export class TokenStore {
         private _defaultTokensByChain;
         private _tokenBalances;
+        private _tokenBalancesByChainId;
         private _tokenMap;
+        private _tokenMapByChainId;
         private _promiseMap;
         constructor(defaultTokensByChain: DefaultTokensByChainType);
         get tokenBalances(): TokenBalancesType;
         get tokenMap(): TokenMapType;
+        getTokenBalancesByChainId(chainId: number): TokenBalancesType;
+        getTokenMapByChainId(chainId: number): TokenMapType;
         getTokenList(chainId: number): ITokenObject[];
         private getERC20Balance;
         getTokenBalance(token: ITokenObject): string;

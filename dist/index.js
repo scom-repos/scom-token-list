@@ -2594,14 +2594,24 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
     exports.TokenStore = void 0;
     class TokenStore {
         constructor(defaultTokensByChain) {
+            this._tokenBalancesByChainId = {};
+            this._tokenMapByChainId = {};
             this._promiseMap = {};
             this._defaultTokensByChain = defaultTokensByChain;
         }
+        //FIXME: To be removed
         get tokenBalances() {
             return this._tokenBalances;
         }
+        //FIXME: To be removed
         get tokenMap() {
             return this._tokenMap;
+        }
+        getTokenBalancesByChainId(chainId) {
+            return this._tokenBalancesByChainId[chainId];
+        }
+        getTokenMapByChainId(chainId) {
+            return this._tokenMapByChainId[chainId];
         }
         getTokenList(chainId) {
             if (!chainId)
@@ -2688,6 +2698,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
                     const erc20TokenList = tokenList.filter(v => !!v.address);
                     allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
                     this._tokenBalances = allTokenBalancesMap;
+                    this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
                     this._promiseMap[wallet.instanceId] = null;
                     resolve(allTokenBalancesMap);
                 }
@@ -2708,6 +2719,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             for (let tokenAddress of Object.keys(tokenBalancesMap)) {
                 this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
             }
+            this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
             return this._tokenBalances;
         }
         _updateTokenMapData(chainId) {
@@ -2739,6 +2751,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
         updateTokenMapData(chainId) {
             let allTokensMap = this._updateTokenMapData(chainId);
             this._tokenMap = allTokensMap;
+            this._tokenMapByChainId[chainId] = allTokensMap;
             return allTokensMap;
         }
     }

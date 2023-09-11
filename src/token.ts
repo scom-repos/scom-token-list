@@ -8,20 +8,32 @@ export type TokenBalancesType = Record<string, string>;
 
 export class TokenStore {
   private _defaultTokensByChain: DefaultTokensByChainType;
-  private _tokenBalances: TokenBalancesType;
-  private _tokenMap: TokenMapType;
+  private _tokenBalances: TokenBalancesType; //FIXME: To be removed
+  private _tokenBalancesByChainId: Record<number, TokenBalancesType> = {};
+  private _tokenMap: TokenMapType; //FIXME: To be removed
+  private _tokenMapByChainId: Record<number, TokenMapType> = {};
   private _promiseMap: Record<string, Promise<any>> = {};
 
   constructor(defaultTokensByChain: DefaultTokensByChainType) {
     this._defaultTokensByChain = defaultTokensByChain;
   }
 
+  //FIXME: To be removed
   public get tokenBalances() {
     return this._tokenBalances;
   }
 
-  public get tokenMap() {
+  //FIXME: To be removed
+  public get tokenMap() { 
     return this._tokenMap;
+  }
+
+  public getTokenBalancesByChainId(chainId: number) {
+    return this._tokenBalancesByChainId[chainId];
+  }
+
+  public getTokenMapByChainId(chainId: number) {
+    return this._tokenMapByChainId[chainId];
   }
 
   public getTokenList(chainId: number) {
@@ -50,7 +62,7 @@ export class TokenStore {
     }
     return balance;
   }
-  
+
   private async _updateAllTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[], nativeToken: ITokenObject): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
     try {
@@ -106,6 +118,7 @@ export class TokenStore {
         const erc20TokenList = tokenList.filter(v => !!v.address);
         allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
         this._tokenBalances = allTokenBalancesMap;
+        this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
         this._promiseMap[wallet.instanceId] = null;
         resolve(allTokenBalancesMap);
       } catch (error) {
@@ -125,6 +138,7 @@ export class TokenStore {
     for (let tokenAddress of Object.keys(tokenBalancesMap)) {
       this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
     }
+    this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
     return this._tokenBalances;
   }
 
@@ -154,6 +168,7 @@ export class TokenStore {
   public updateTokenMapData(chainId: number): TokenMapType {
     let allTokensMap = this._updateTokenMapData(chainId);
     this._tokenMap = allTokensMap;
+    this._tokenMapByChainId[chainId] = allTokensMap;
     return allTokensMap;
   }
 }
