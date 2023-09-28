@@ -61,5 +61,11 @@ export const Tokens_Fuji = [
     "address": "0xf5debAAcB2Df6854D16BFD51cC12E5c0C4a51Ba9",
     "symbol": "$SCOM",
     "decimals": 18
+  },
+  {
+    "name": "PROJECT",
+    "address": "0x1B23B0dBB8D142596443999Dd0197299Fa17eb03",
+    "symbol": "PROJECT",
+    "decimals": 18
   }
 ]

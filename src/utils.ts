@@ -1,26 +1,10 @@
-import { Wallet } from '@ijstech/eth-wallet';
 import { ITokenObject } from './interface';
 import { ChainNativeTokenByChainId } from './tokens/index';
 
 const TOKENS = "oswap_user_tokens_";
 
-export enum WalletPlugin {
-  MetaMask = 'metamask',
-  WalletConnect = 'walletconnect',
-}
-
 export const state = {
   userTokens: {} as { [key: string]: ITokenObject[] }
-}
-
-export function isWalletConnected() {
-  const wallet = Wallet.getClientInstance();
-  return wallet.isConnected;
-}
-
-export const hasMetaMask = function () {
-  const wallet = Wallet.getClientInstance();
-  return wallet?.clientSideProvider?.name === WalletPlugin.MetaMask;
 }
 
 export const setUserTokens = (token: ITokenObject, chainId: number) => {

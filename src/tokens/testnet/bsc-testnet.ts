@@ -129,5 +129,11 @@ export const Tokens_BSC_Testnet = [
     "address": "0x9DbD7024804a2a6131BE7C8dE7A7773c5c119419",
     "symbol": "dBVR",
     "decimals": 18
+  },
+  {
+    "name": "PROJECT",
+    "address": "0x3cb66f6057d80015D0cf7c4c4e00dfC79ff6c836",
+    "symbol": "PROJECT",
+    "decimals": 18
   }
 ]

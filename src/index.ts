@@ -1,10 +1,8 @@
 import {} from '@ijstech/eth-contract';
 import { TokenStore } from './token';
 import {
-  hasMetaMask,
   hasUserToken,
   setUserTokens,
-  isWalletConnected,
   addUserTokens
 } from './utils';
 import {
@@ -23,11 +21,9 @@ const setTokenStore = () => tokenStore = new TokenStore(DefaultTokens);
 
 export {
   ITokenObject,
-  hasMetaMask,
   hasUserToken,
   setUserTokens,
   addUserTokens,
-  isWalletConnected,
   DefaultERC20Tokens,
   ChainNativeTokenByChainId,
   tokenStore,

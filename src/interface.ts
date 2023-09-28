@@ -14,9 +14,3 @@ export interface ITokenObject {
 };
 
 export type TokenMapType = { [token: string]: ITokenObject };
-
-export enum SITE_ENV {
-  DEV = 'dev',
-  TESTNET = 'testnet',
-  MAINNET = 'mainnet',
-}

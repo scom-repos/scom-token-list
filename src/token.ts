@@ -1,4 +1,4 @@
-import { BigNumber, Contracts, IClientWallet, IRpcWallet, IWallet, Wallet } from '@ijstech/eth-wallet';
+import { BigNumber, Contracts, IClientWallet, IRpcWallet, IWallet, RpcWallet, Wallet } from '@ijstech/eth-wallet';
 import { ITokenObject, TokenMapType } from './interface';
 import { getChainNativeToken, getUserTokens } from './utils';
 
@@ -105,6 +105,22 @@ export class TokenStore {
     return allTokenBalancesMap;
   }
 
+  public async updateTokenBalancesByChainId(chainId: number, erc20TokenList?: ITokenObject[]): Promise<TokenBalancesType> {
+    let allTokenBalancesMap: TokenBalancesType = {};
+    try {
+      const rpcWallet = RpcWallet.getRpcWallet(chainId);
+      const tokenList = this.getTokenList(rpcWallet.chainId);
+      if (!tokenList) return allTokenBalancesMap;
+      const nativeToken: any = tokenList.find(v => !v.address);
+      const _erc20TokenList = erc20TokenList ? erc20TokenList : tokenList.filter(v => !!v.address);
+      allTokenBalancesMap = await this._updateAllTokenBalances(rpcWallet, _erc20TokenList, nativeToken);
+      this._tokenBalancesByChainId[rpcWallet.chainId] = allTokenBalancesMap;
+    } catch (error) {
+    }
+    return allTokenBalancesMap;
+  }
+
+  //FIXME: To be removed
   public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
     if (this._promiseMap[wallet.instanceId]) {
@@ -130,6 +146,7 @@ export class TokenStore {
     return promise;
   }
 
+  //FIXME: To be removed
   public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
     let tokenBalancesMap: TokenBalancesType = {};
     if (!wallet.chainId) return tokenBalancesMap;
