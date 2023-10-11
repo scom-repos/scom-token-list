@@ -32,5 +32,11 @@ export const Tokens_Mumbai = [
     "address": "0xE4c020c5B74A44cf21549C36E8762Da77FAaf134",
     "symbol": "TIDAL",
     "decimals": 18
+  },
+  {
+    "name": "Vote-escrowed OSWAP",
+    "address": "0xb0AF504638BDe5e53D6EaE1119dEd13411c35cF2",
+    "symbol": "veOSWAP",
+    "decimals": 18
   }
 ]

@@ -68,7 +68,13 @@ define("@scom/scom-token-list/tokens/mainnet/avalanche.ts", ["require", "exports
         { "address": "0x0da67235dD5787D67955420C84ca1cEcd4E5Bb3b", "name": "Wrapped Memo", "symbol": "wMEMO", "decimals": 18 },
         { "address": "0xb54f16fB19478766A268F172C9480f8da1a7c9C3", "name": "Time", "symbol": "TIME", "decimals": 18 },
         { "address": "0x37B608519F91f70F2EeB0e5Ed9AF4061722e4F76", "name": "SushiToken", "symbol": "SUSHI", "decimals": 18 },
-        { "address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9", "name": "Aave Token", "symbol": "AAVE", "decimals": 18 }
+        { "address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9", "name": "Aave Token", "symbol": "AAVE", "decimals": 18 },
+        {
+            "name": "Vote-escrowed OSWAP",
+            "address": "0x29E65d6f3e7a609E0138a1331D42D23159124B8E",
+            "symbol": "veOSWAP",
+            "decimals": 18
+        }
     ];
 });
 define("@scom/scom-token-list/tokens/mainnet/ethereum.ts", ["require", "exports"], function (require, exports) {
@@ -362,7 +368,13 @@ define("@scom/scom-token-list/tokens/mainnet/polygon.ts", ["require", "exports"]
         { "address": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39", "name": "ChainLink Token", "symbol": "LINK", "decimals": 18 },
         { "address": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b", "name": "Avalanche Token", "symbol": "AVAX", "decimals": 18 },
         { "address": "0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5", "name": "Fantom Token", "symbol": "FTM", "decimals": 18 },
-        { "address": "0x229b1b6C23ff8953D663C4cBB519717e323a0a84", "name": "BLOK", "symbol": "BLOK", "decimals": 18 }
+        { "address": "0x229b1b6C23ff8953D663C4cBB519717e323a0a84", "name": "BLOK", "symbol": "BLOK", "decimals": 18 },
+        {
+            "name": "Vote-escrowed OSWAP",
+            "address": "0x29E65d6f3e7a609E0138a1331D42D23159124B8E",
+            "symbol": "veOSWAP",
+            "decimals": 18
+        }
     ];
 });
 define("@scom/scom-token-list/tokens/mainnet/bsc.ts", ["require", "exports"], function (require, exports) {
@@ -2200,6 +2212,12 @@ define("@scom/scom-token-list/tokens/testnet/fuji.ts", ["require", "exports"], f
             "address": "0x1B23B0dBB8D142596443999Dd0197299Fa17eb03",
             "symbol": "PROJECT",
             "decimals": 18
+        },
+        {
+            "name": "Vote-escrowed OSWAP",
+            "address": "0x27eF998b96c9A66937DBAc38c405Adcd7fa5e7DB",
+            "symbol": "veOSWAP",
+            "decimals": 18
         }
     ];
 });
@@ -2241,6 +2259,12 @@ define("@scom/scom-token-list/tokens/testnet/mumbai.ts", ["require", "exports"],
             "name": "Tidal Token",
             "address": "0xE4c020c5B74A44cf21549C36E8762Da77FAaf134",
             "symbol": "TIDAL",
+            "decimals": 18
+        },
+        {
+            "name": "Vote-escrowed OSWAP",
+            "address": "0xb0AF504638BDe5e53D6EaE1119dEd13411c35cF2",
+            "symbol": "veOSWAP",
             "decimals": 18
         }
     ];

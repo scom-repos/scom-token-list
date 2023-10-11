@@ -58,5 +58,11 @@ export const Tokens_Avalanche = [
   {"address": "0x0da67235dD5787D67955420C84ca1cEcd4E5Bb3b","name": "Wrapped Memo","symbol": "wMEMO","decimals": 18},
   {"address": "0xb54f16fB19478766A268F172C9480f8da1a7c9C3","name": "Time","symbol": "TIME","decimals": 18},
   {"address": "0x37B608519F91f70F2EeB0e5Ed9AF4061722e4F76","name": "SushiToken","symbol": "SUSHI","decimals": 18},
-  {"address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9","name": "Aave Token","symbol": "AAVE","decimals": 18}
+  {"address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9","name": "Aave Token","symbol": "AAVE","decimals": 18},
+  {
+    "name": "Vote-escrowed OSWAP",
+    "address": "0x29E65d6f3e7a609E0138a1331D42D23159124B8E",
+    "symbol": "veOSWAP",
+    "decimals": 18
+  }
 ]

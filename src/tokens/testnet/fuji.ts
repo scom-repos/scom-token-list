@@ -67,5 +67,11 @@ export const Tokens_Fuji = [
     "address": "0x1B23B0dBB8D142596443999Dd0197299Fa17eb03",
     "symbol": "PROJECT",
     "decimals": 18
+  },
+  {
+    "name": "Vote-escrowed OSWAP",
+    "address": "0x27eF998b96c9A66937DBAc38c405Adcd7fa5e7DB",
+    "symbol": "veOSWAP",
+    "decimals": 18
   }
 ]
