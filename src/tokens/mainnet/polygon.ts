@@ -30,5 +30,11 @@ export const Tokens_Polygon = [
   { "address": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39", "name": "ChainLink Token", "symbol": "LINK", "decimals": 18 },
   { "address": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b", "name": "Avalanche Token", "symbol": "AVAX", "decimals": 18 },
   { "address": "0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5", "name": "Fantom Token", "symbol": "FTM", "decimals": 18 },
-  { "address": "0x229b1b6C23ff8953D663C4cBB519717e323a0a84", "name": "BLOK", "symbol": "BLOK", "decimals": 18 }
+  { "address": "0x229b1b6C23ff8953D663C4cBB519717e323a0a84", "name": "BLOK", "symbol": "BLOK", "decimals": 18 },
+  {
+    "name": "Vote-escrowed OSWAP",
+    "address": "0x29E65d6f3e7a609E0138a1331D42D23159124B8E",
+    "symbol": "veOSWAP",
+    "decimals": 18
+  }
 ]
