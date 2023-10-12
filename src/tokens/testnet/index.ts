@@ -5,3 +5,4 @@ export { Tokens_Fantom_Testnet } from './fantom-testnet';
 export { Tokens_Amino } from './amino';
 export { Tokens_AminoXTestnet } from './aminoX-testnet';
 export { Tokens_Cronos_Testnet } from './cronos-testnet';
+export { Tokens_Arbitrum_Goerli } from './arbitrum-goerli';

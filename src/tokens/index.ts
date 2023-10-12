@@ -1,6 +1,6 @@
 import { ITokenObject } from "../interface";
-import { Tokens_Avalanche, Tokens_BSC, Tokens_Cronos, Tokens_Ethereuem, Tokens_Fantom, Tokens_Polygon } from "./mainnet/index";
-import { Tokens_Amino, Tokens_AminoXTestnet, Tokens_BSC_Testnet, Tokens_Cronos_Testnet, Tokens_Fantom_Testnet, Tokens_Fuji, Tokens_Mumbai } from "./testnet/index";
+import { Tokens_Avalanche, Tokens_BSC, Tokens_Cronos, Tokens_Ethereuem, Tokens_Fantom, Tokens_Polygon, Tokens_Arbitrum } from "./mainnet/index";
+import { Tokens_Amino, Tokens_AminoXTestnet, Tokens_BSC_Testnet, Tokens_Cronos_Testnet, Tokens_Fantom_Testnet, Tokens_Fuji, Tokens_Mumbai, Tokens_Arbitrum_Goerli } from "./testnet/index";
 
 const DefaultERC20Tokens: { [chainId: number]: ITokenObject[] } = {
   1: Tokens_Ethereuem.map(v => ({ ...v, chainId: 1 })),
@@ -15,7 +15,9 @@ const DefaultERC20Tokens: { [chainId: number]: ITokenObject[] } = {
   43114: Tokens_Avalanche.map(v => ({ ...v, chainId: 43114 })),
   250: Tokens_Fantom.map(v => ({ ...v, chainId: 250 })),
   4002: Tokens_Fantom_Testnet.map(v => ({ ...v, chainId: 4002 })),
-  13370: Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 }))
+  13370: Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 })),
+  42161: Tokens_Arbitrum.map(v => ({ ...v, chainId: 42161 })),
+  421613: Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 }))
 }
 
 const ChainNativeTokenByChainId: { [chainId: number]: ITokenObject } = {
@@ -32,6 +34,8 @@ const ChainNativeTokenByChainId: { [chainId: number]: ITokenObject } = {
   250: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 250 }, // Fantom Opera
   4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 4002 }, // Fantom Testnet
   13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 13370 }, //Amino X Testnet
+  42161: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 42161 }, // Arbitrum One
+  421613: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 421613 }, // Arbitrum Goerli
 }
 
 const WETHByChainId = Object.keys(DefaultERC20Tokens).reduce((result: {[chainId: number]: ITokenObject}, key: string) => {
