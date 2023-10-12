@@ -371,29 +371,21 @@ declare module "@scom/scom-token-list/utils.ts" {
 }
 /// <amd-module name="@scom/scom-token-list/token.ts" />
 declare module "@scom/scom-token-list/token.ts" {
-    import { IRpcWallet } from '@ijstech/eth-wallet';
     import { ITokenObject, TokenMapType } from "@scom/scom-token-list/interface.ts";
     export type DefaultTokensByChainType = Record<number, ITokenObject[]>;
     export type TokenBalancesType = Record<string, string>;
     export class TokenStore {
         private _defaultTokensByChain;
-        private _tokenBalances;
         private _tokenBalancesByChainId;
-        private _tokenMap;
         private _tokenMapByChainId;
-        private _promiseMap;
         constructor(defaultTokensByChain: DefaultTokensByChainType);
-        get tokenBalances(): TokenBalancesType;
-        get tokenMap(): TokenMapType;
         getTokenBalancesByChainId(chainId: number): TokenBalancesType;
         getTokenMapByChainId(chainId: number): TokenMapType;
         getTokenList(chainId: number): ITokenObject[];
         private getERC20Balance;
-        getTokenBalance(token: ITokenObject): string;
         private _updateAllTokenBalances;
         updateTokenBalancesByChainId(chainId: number, erc20TokenList?: ITokenObject[]): Promise<TokenBalancesType>;
-        updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType>;
-        updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType>;
+        updateNativeTokenBalanceByChainId(chainId: number): Promise<void>;
         private _updateTokenMapData;
         updateTokenMapData(chainId: number): TokenMapType;
     }

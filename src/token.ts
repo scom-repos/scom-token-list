@@ -8,25 +8,25 @@ export type TokenBalancesType = Record<string, string>;
 
 export class TokenStore {
   private _defaultTokensByChain: DefaultTokensByChainType;
-  private _tokenBalances: TokenBalancesType = {}; //FIXME: To be removed
+  // private _tokenBalances: TokenBalancesType = {}; //FIXME: To be removed
   private _tokenBalancesByChainId: Record<number, TokenBalancesType> = {};
-  private _tokenMap: TokenMapType = {}; //FIXME: To be removed
+  // private _tokenMap: TokenMapType = {}; //FIXME: To be removed
   private _tokenMapByChainId: Record<number, TokenMapType> = {};
-  private _promiseMap: Record<string, Promise<any>> = {};
+  // private _promiseMap: Record<string, Promise<any>> = {};
 
   constructor(defaultTokensByChain: DefaultTokensByChainType) {
     this._defaultTokensByChain = defaultTokensByChain;
   }
 
   //FIXME: To be removed
-  public get tokenBalances() {
-    return this._tokenBalances;
-  }
+  // public get tokenBalances() {
+  //   return this._tokenBalances;
+  // }
 
   //FIXME: To be removed
-  public get tokenMap() { 
-    return this._tokenMap;
-  }
+  // public get tokenMap() { 
+  //   return this._tokenMap;
+  // }
 
   public getTokenBalancesByChainId(chainId: number) {
     return this._tokenBalancesByChainId[chainId];
@@ -52,16 +52,16 @@ export class TokenStore {
     return balance;
   }
 
-  public getTokenBalance(token: ITokenObject): string {
-    let balance = '0';
-    if (!token || !this._tokenBalances) return balance;
-    if (token.address) {
-      balance = this._tokenBalances[token.address.toLowerCase()];
-    } else {
-      balance = this._tokenBalances[token.symbol];
-    }
-    return balance;
-  }
+  // public getTokenBalance(token: ITokenObject): string {
+  //   let balance = '0';
+  //   if (!token || !this._tokenBalances) return balance;
+  //   if (token.address) {
+  //     balance = this._tokenBalances[token.address.toLowerCase()];
+  //   } else {
+  //     balance = this._tokenBalances[token.symbol];
+  //   }
+  //   return balance;
+  // }
 
   private async _updateAllTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[], nativeToken: ITokenObject): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
@@ -120,44 +120,57 @@ export class TokenStore {
     return allTokenBalancesMap;
   }
 
-  //FIXME: To be removed
-  public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
-    let allTokenBalancesMap: TokenBalancesType = {};
-    if (this._promiseMap[wallet.instanceId]) {
-      return this._promiseMap[wallet.instanceId];
+  public async updateNativeTokenBalanceByChainId(chainId: number): Promise<void> {
+    try {
+      const rpcWallet = RpcWallet.getRpcWallet(chainId);
+      const tokenList = this.getTokenList(rpcWallet.chainId);
+      if (!tokenList) return;
+      const nativeToken: any = tokenList.find(v => !v.address);
+      let balance = (await rpcWallet.balance).toFixed();
+      this._tokenBalancesByChainId[rpcWallet.chainId] = this._tokenBalancesByChainId[rpcWallet.chainId] || {};
+      this._tokenBalancesByChainId[rpcWallet.chainId][nativeToken.symbol]  = balance;
+    } catch (error) {
     }
-    let promise = new Promise<TokenBalancesType>(async (resolve, reject) => {
-      try {
-        const tokenList = this.getTokenList(wallet.chainId);
-        if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
-        const nativeToken: any = tokenList.find(v => !v.address);
-        const erc20TokenList = tokenList.filter(v => !!v.address);
-        allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-        this._tokenBalances = allTokenBalancesMap;
-        this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
-        this._promiseMap[wallet.instanceId] = null;
-        resolve(allTokenBalancesMap);
-      } catch (error) {
-        this._promiseMap[wallet.instanceId] = null;
-        reject(error);
-      }
-    })
-    this._promiseMap[wallet.instanceId] = promise;
-    return promise;
   }
 
   //FIXME: To be removed
-  public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
-    let tokenBalancesMap: TokenBalancesType = {};
-    if (!wallet.chainId) return tokenBalancesMap;
-    const nativeToken = getChainNativeToken(wallet.chainId);
-    tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-    for (let tokenAddress of Object.keys(tokenBalancesMap)) {
-      this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
-    }
-    this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
-    return this._tokenBalances;
-  }
+  // public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
+  //   let allTokenBalancesMap: TokenBalancesType = {};
+  //   if (this._promiseMap[wallet.instanceId]) {
+  //     return this._promiseMap[wallet.instanceId];
+  //   }
+  //   let promise = new Promise<TokenBalancesType>(async (resolve, reject) => {
+  //     try {
+  //       const tokenList = this.getTokenList(wallet.chainId);
+  //       if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
+  //       const nativeToken: any = tokenList.find(v => !v.address);
+  //       const erc20TokenList = tokenList.filter(v => !!v.address);
+  //       allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
+  //       this._tokenBalances = allTokenBalancesMap;
+  //       this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
+  //       this._promiseMap[wallet.instanceId] = null;
+  //       resolve(allTokenBalancesMap);
+  //     } catch (error) {
+  //       this._promiseMap[wallet.instanceId] = null;
+  //       reject(error);
+  //     }
+  //   })
+  //   this._promiseMap[wallet.instanceId] = promise;
+  //   return promise;
+  // }
+
+  //FIXME: To be removed
+  // public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
+  //   let tokenBalancesMap: TokenBalancesType = {};
+  //   if (!wallet.chainId) return tokenBalancesMap;
+  //   const nativeToken = getChainNativeToken(wallet.chainId);
+  //   tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
+  //   for (let tokenAddress of Object.keys(tokenBalancesMap)) {
+  //     this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
+  //   }
+  //   this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
+  //   return this._tokenBalances;
+  // }
 
   private _updateTokenMapData(chainId: number): TokenMapType {
     let allTokensMap: TokenMapType = {};
@@ -184,7 +197,7 @@ export class TokenStore {
 
   public updateTokenMapData(chainId: number): TokenMapType {
     let allTokensMap = this._updateTokenMapData(chainId);
-    this._tokenMap = allTokensMap;
+    // this._tokenMap = allTokensMap;
     this._tokenMapByChainId[chainId] = allTokensMap;
     return allTokensMap;
   }

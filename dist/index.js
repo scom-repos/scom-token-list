@@ -2606,22 +2606,22 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TokenStore = void 0;
     class TokenStore {
+        // private _promiseMap: Record<string, Promise<any>> = {};
         constructor(defaultTokensByChain) {
-            this._tokenBalances = {}; //FIXME: To be removed
+            // private _tokenBalances: TokenBalancesType = {}; //FIXME: To be removed
             this._tokenBalancesByChainId = {};
-            this._tokenMap = {}; //FIXME: To be removed
+            // private _tokenMap: TokenMapType = {}; //FIXME: To be removed
             this._tokenMapByChainId = {};
-            this._promiseMap = {};
             this._defaultTokensByChain = defaultTokensByChain;
         }
         //FIXME: To be removed
-        get tokenBalances() {
-            return this._tokenBalances;
-        }
+        // public get tokenBalances() {
+        //   return this._tokenBalances;
+        // }
         //FIXME: To be removed
-        get tokenMap() {
-            return this._tokenMap;
-        }
+        // public get tokenMap() { 
+        //   return this._tokenMap;
+        // }
         getTokenBalancesByChainId(chainId) {
             return this._tokenBalancesByChainId[chainId];
         }
@@ -2643,18 +2643,16 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             const balance = await erc20.balanceOf(wallet.address);
             return balance;
         }
-        getTokenBalance(token) {
-            let balance = '0';
-            if (!token || !this._tokenBalances)
-                return balance;
-            if (token.address) {
-                balance = this._tokenBalances[token.address.toLowerCase()];
-            }
-            else {
-                balance = this._tokenBalances[token.symbol];
-            }
-            return balance;
-        }
+        // public getTokenBalance(token: ITokenObject): string {
+        //   let balance = '0';
+        //   if (!token || !this._tokenBalances) return balance;
+        //   if (token.address) {
+        //     balance = this._tokenBalances[token.address.toLowerCase()];
+        //   } else {
+        //     balance = this._tokenBalances[token.symbol];
+        //   }
+        //   return balance;
+        // }
         async _updateAllTokenBalances(wallet, erc20TokenList, nativeToken) {
             let allTokenBalancesMap = {};
             try {
@@ -2715,46 +2713,57 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             }
             return allTokenBalancesMap;
         }
-        //FIXME: To be removed
-        async updateAllTokenBalances(wallet) {
-            let allTokenBalancesMap = {};
-            if (this._promiseMap[wallet.instanceId]) {
-                return this._promiseMap[wallet.instanceId];
+        async updateNativeTokenBalanceByChainId(chainId) {
+            try {
+                const rpcWallet = eth_wallet_1.RpcWallet.getRpcWallet(chainId);
+                const tokenList = this.getTokenList(rpcWallet.chainId);
+                if (!tokenList)
+                    return;
+                const nativeToken = tokenList.find(v => !v.address);
+                let balance = (await rpcWallet.balance).toFixed();
+                this._tokenBalancesByChainId[rpcWallet.chainId] = this._tokenBalancesByChainId[rpcWallet.chainId] || {};
+                this._tokenBalancesByChainId[rpcWallet.chainId][nativeToken.symbol] = balance;
             }
-            let promise = new Promise(async (resolve, reject) => {
-                try {
-                    const tokenList = this.getTokenList(wallet.chainId);
-                    if (!wallet.chainId || !tokenList)
-                        return allTokenBalancesMap;
-                    const nativeToken = tokenList.find(v => !v.address);
-                    const erc20TokenList = tokenList.filter(v => !!v.address);
-                    allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-                    this._tokenBalances = allTokenBalancesMap;
-                    this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
-                    this._promiseMap[wallet.instanceId] = null;
-                    resolve(allTokenBalancesMap);
-                }
-                catch (error) {
-                    this._promiseMap[wallet.instanceId] = null;
-                    reject(error);
-                }
-            });
-            this._promiseMap[wallet.instanceId] = promise;
-            return promise;
+            catch (error) {
+            }
         }
         //FIXME: To be removed
-        async updateTokenBalances(wallet, erc20TokenList) {
-            let tokenBalancesMap = {};
-            if (!wallet.chainId)
-                return tokenBalancesMap;
-            const nativeToken = (0, utils_1.getChainNativeToken)(wallet.chainId);
-            tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-            for (let tokenAddress of Object.keys(tokenBalancesMap)) {
-                this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
-            }
-            this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
-            return this._tokenBalances;
-        }
+        // public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
+        //   let allTokenBalancesMap: TokenBalancesType = {};
+        //   if (this._promiseMap[wallet.instanceId]) {
+        //     return this._promiseMap[wallet.instanceId];
+        //   }
+        //   let promise = new Promise<TokenBalancesType>(async (resolve, reject) => {
+        //     try {
+        //       const tokenList = this.getTokenList(wallet.chainId);
+        //       if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
+        //       const nativeToken: any = tokenList.find(v => !v.address);
+        //       const erc20TokenList = tokenList.filter(v => !!v.address);
+        //       allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
+        //       this._tokenBalances = allTokenBalancesMap;
+        //       this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
+        //       this._promiseMap[wallet.instanceId] = null;
+        //       resolve(allTokenBalancesMap);
+        //     } catch (error) {
+        //       this._promiseMap[wallet.instanceId] = null;
+        //       reject(error);
+        //     }
+        //   })
+        //   this._promiseMap[wallet.instanceId] = promise;
+        //   return promise;
+        // }
+        //FIXME: To be removed
+        // public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
+        //   let tokenBalancesMap: TokenBalancesType = {};
+        //   if (!wallet.chainId) return tokenBalancesMap;
+        //   const nativeToken = getChainNativeToken(wallet.chainId);
+        //   tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
+        //   for (let tokenAddress of Object.keys(tokenBalancesMap)) {
+        //     this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
+        //   }
+        //   this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
+        //   return this._tokenBalances;
+        // }
         _updateTokenMapData(chainId) {
             let allTokensMap = {};
             if (this._defaultTokensByChain[chainId]) {
@@ -2783,7 +2792,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
         }
         updateTokenMapData(chainId) {
             let allTokensMap = this._updateTokenMapData(chainId);
-            this._tokenMap = allTokensMap;
+            // this._tokenMap = allTokensMap;
             this._tokenMapByChainId[chainId] = allTokensMap;
             return allTokensMap;
         }
