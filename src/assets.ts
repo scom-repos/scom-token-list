@@ -19,7 +19,9 @@ const TokenFolderName: { [key: number]: string } = {
   43114: "avalanche",
   250: "fantom",
   4002: "fantom-testnet",
-  13370: "aminox-testnet"
+  13370: "aminox-testnet",
+  42161: "arbitrum",
+  421613: "arbitrum-goerli",
 }
 
 function tokenPath(tokenObj?: ITokenObject, chainId?: number): string {
