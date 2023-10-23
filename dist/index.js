@@ -2512,21 +2512,21 @@ define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/sc
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getOpenSwapToken = exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.DefaultTokens = exports.WETHByChainId = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = void 0;
     const DefaultERC20Tokens = {
-        1: index_1.Tokens_Ethereuem.map(v => (Object.assign(Object.assign({}, v), { chainId: 1 }))),
-        25: index_1.Tokens_Cronos.map(v => (Object.assign(Object.assign({}, v), { chainId: 25 }))),
-        56: index_1.Tokens_BSC.map(v => (Object.assign(Object.assign({}, v), { chainId: 56 }))),
-        97: index_2.Tokens_BSC_Testnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 97 }))),
-        137: index_1.Tokens_Polygon.map(v => (Object.assign(Object.assign({}, v), { chainId: 137 }))),
-        338: index_2.Tokens_Cronos_Testnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 338 }))),
-        31337: index_2.Tokens_Amino.map(v => (Object.assign(Object.assign({}, v), { chainId: 31337 }))),
-        80001: index_2.Tokens_Mumbai.map(v => (Object.assign(Object.assign({}, v), { chainId: 80001 }))),
-        43113: index_2.Tokens_Fuji.map(v => (Object.assign(Object.assign({}, v), { chainId: 43113 }))),
-        43114: index_1.Tokens_Avalanche.map(v => (Object.assign(Object.assign({}, v), { chainId: 43114 }))),
-        250: index_1.Tokens_Fantom.map(v => (Object.assign(Object.assign({}, v), { chainId: 250 }))),
-        4002: index_2.Tokens_Fantom_Testnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 4002 }))),
-        13370: index_2.Tokens_AminoXTestnet.map(v => (Object.assign(Object.assign({}, v), { chainId: 13370 }))),
-        42161: index_1.Tokens_Arbitrum.map(v => (Object.assign(Object.assign({}, v), { chainId: 42161 }))),
-        421613: index_2.Tokens_Arbitrum_Goerli.map(v => (Object.assign(Object.assign({}, v), { chainId: 421613 })))
+        1: index_1.Tokens_Ethereuem.map(v => ({ ...v, chainId: 1 })),
+        25: index_1.Tokens_Cronos.map(v => ({ ...v, chainId: 25 })),
+        56: index_1.Tokens_BSC.map(v => ({ ...v, chainId: 56 })),
+        97: index_2.Tokens_BSC_Testnet.map(v => ({ ...v, chainId: 97 })),
+        137: index_1.Tokens_Polygon.map(v => ({ ...v, chainId: 137 })),
+        338: index_2.Tokens_Cronos_Testnet.map(v => ({ ...v, chainId: 338 })),
+        31337: index_2.Tokens_Amino.map(v => ({ ...v, chainId: 31337 })),
+        80001: index_2.Tokens_Mumbai.map(v => ({ ...v, chainId: 80001 })),
+        43113: index_2.Tokens_Fuji.map(v => ({ ...v, chainId: 43113 })),
+        43114: index_1.Tokens_Avalanche.map(v => ({ ...v, chainId: 43114 })),
+        250: index_1.Tokens_Fantom.map(v => ({ ...v, chainId: 250 })),
+        4002: index_2.Tokens_Fantom_Testnet.map(v => ({ ...v, chainId: 4002 })),
+        13370: index_2.Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 })),
+        42161: index_1.Tokens_Arbitrum.map(v => ({ ...v, chainId: 42161 })),
+        421613: index_2.Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 }))
     };
     exports.DefaultERC20Tokens = DefaultERC20Tokens;
     const ChainNativeTokenByChainId = {
@@ -2640,8 +2640,7 @@ define("@scom/scom-token-list/utils.ts", ["require", "exports", "@scom/scom-toke
     };
     exports.setUserTokens = setUserTokens;
     const hasUserToken = (address, chainId) => {
-        var _a;
-        return (_a = exports.state.userTokens[chainId]) === null || _a === void 0 ? void 0 : _a.some((token) => { var _a; return ((_a = token.address) === null || _a === void 0 ? void 0 : _a.toLocaleLowerCase()) === (address === null || address === void 0 ? void 0 : address.toLocaleLowerCase()); });
+        return exports.state.userTokens[chainId]?.some((token) => token.address?.toLocaleLowerCase() === address?.toLocaleLowerCase());
     };
     exports.hasUserToken = hasUserToken;
     const getUserTokens = (chainId) => {
@@ -2713,7 +2712,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             const tokenList = [...this._defaultTokensByChain[chainId]];
             const userCustomTokens = (0, utils_1.getUserTokens)(chainId);
             if (userCustomTokens) {
-                userCustomTokens.forEach(v => tokenList.push(Object.assign(Object.assign({}, v), { isNew: false, isCustom: true })));
+                userCustomTokens.forEach(v => tokenList.push({ ...v, isNew: false, isCustom: true }));
             }
             return tokenList;
         }
@@ -2864,7 +2863,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
                 }
                 const userCustomTokens = (0, utils_1.getUserTokens)(chainId);
                 if (userCustomTokens) {
-                    userCustomTokens.forEach(v => allTokensMap[v.address] = Object.assign(Object.assign({}, v), { isCustom: true }));
+                    userCustomTokens.forEach(v => allTokensMap[v.address] = { ...v, isCustom: true });
                 }
             }
             return allTokensMap;
