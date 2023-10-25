@@ -1504,5 +1504,11 @@ export const Tokens_BSC = [
     "symbol": "QUO",
     "address": "0x08b450e4a48C04CDF6DB2bD4cf24057f7B9563fF",
     "decimals": 18
-  }
+  },
+  {
+    "name": "Brickken",
+    "symbol": "BKN",
+    "address": "0x0e28bC9B03971E95acF9ae1326E51ecF9C55B498",
+    "decimals": 18
+  },
 ]

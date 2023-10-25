@@ -135,5 +135,11 @@ export const Tokens_BSC_Testnet = [
     "address": "0x3cb66f6057d80015D0cf7c4c4e00dfC79ff6c836",
     "symbol": "PROJECT",
     "decimals": 18
-  }
+  },
+  {
+    "name": "dummy Brickken",
+    "symbol": "BKN",
+    "address": "0x8AbC5b6B1f75b2F8243916aC6043c3Da8E196A67",
+    "decimals": 18
+  },
 ]

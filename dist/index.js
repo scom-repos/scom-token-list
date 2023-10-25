@@ -1888,7 +1888,13 @@ define("@scom/scom-token-list/tokens/mainnet/bsc.ts", ["require", "exports"], fu
             "symbol": "QUO",
             "address": "0x08b450e4a48C04CDF6DB2bD4cf24057f7B9563fF",
             "decimals": 18
-        }
+        },
+        {
+            "name": "Brickken",
+            "symbol": "BKN",
+            "address": "0x0e28bC9B03971E95acF9ae1326E51ecF9C55B498",
+            "decimals": 18
+        },
     ];
 });
 define("@scom/scom-token-list/tokens/mainnet/fantom.ts", ["require", "exports"], function (require, exports) {
@@ -2177,7 +2183,13 @@ define("@scom/scom-token-list/tokens/testnet/bsc-testnet.ts", ["require", "expor
             "address": "0x3cb66f6057d80015D0cf7c4c4e00dfC79ff6c836",
             "symbol": "PROJECT",
             "decimals": 18
-        }
+        },
+        {
+            "name": "dummy Brickken",
+            "symbol": "BKN",
+            "address": "0x8AbC5b6B1f75b2F8243916aC6043c3Da8E196A67",
+            "decimals": 18
+        },
     ];
 });
 define("@scom/scom-token-list/tokens/testnet/fuji.ts", ["require", "exports"], function (require, exports) {
