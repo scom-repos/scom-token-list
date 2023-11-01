@@ -2875,7 +2875,7 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
                 }
                 const userCustomTokens = (0, utils_1.getUserTokens)(chainId);
                 if (userCustomTokens) {
-                    userCustomTokens.forEach(v => allTokensMap[v.address] = { ...v, isCustom: true });
+                    userCustomTokens.forEach(v => allTokensMap[v.address.toLowerCase()] = { ...v, isCustom: true });
                 }
             }
             return allTokensMap;
