@@ -189,7 +189,7 @@ export class TokenStore {
       }
       const userCustomTokens = getUserTokens(chainId);
       if (userCustomTokens) {
-        userCustomTokens.forEach(v => allTokensMap[v.address] = {...v, isCustom: true});
+        userCustomTokens.forEach(v => allTokensMap[v.address.toLowerCase()] = {...v, isCustom: true});
       }
     }
     return allTokensMap;
