@@ -186,6 +186,24 @@ declare module "@scom/scom-token-list/tokens/mainnet/arbitrum.ts" {
         isWETH: boolean;
     })[];
 }
+/// <amd-module name="@scom/scom-token-list/tokens/mainnet/zkSync.ts" />
+declare module "@scom/scom-token-list/tokens/mainnet/zkSync.ts" {
+    export const Tokens_ZK: ({
+        name: string;
+        address: string;
+        symbol: string;
+        decimals: number;
+        isWETH: boolean;
+        isCommon?: undefined;
+    } | {
+        name: string;
+        address: string;
+        symbol: string;
+        decimals: number;
+        isCommon: boolean;
+        isWETH?: undefined;
+    })[];
+}
 /// <amd-module name="@scom/scom-token-list/tokens/mainnet/index.ts" />
 declare module "@scom/scom-token-list/tokens/mainnet/index.ts" {
     export { Tokens_Avalanche } from "@scom/scom-token-list/tokens/mainnet/avalanche.ts";
@@ -195,6 +213,7 @@ declare module "@scom/scom-token-list/tokens/mainnet/index.ts" {
     export { Tokens_Fantom } from "@scom/scom-token-list/tokens/mainnet/fantom.ts";
     export { Tokens_Cronos } from "@scom/scom-token-list/tokens/mainnet/cronos.ts";
     export { Tokens_Arbitrum } from "@scom/scom-token-list/tokens/mainnet/arbitrum.ts";
+    export { Tokens_ZK } from "@scom/scom-token-list/tokens/mainnet/zkSync.ts";
 }
 /// <amd-module name="@scom/scom-token-list/tokens/testnet/bsc-testnet.ts" />
 declare module "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts" {
@@ -368,6 +387,24 @@ declare module "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts" {
         isWETH?: undefined;
     })[];
 }
+/// <amd-module name="@scom/scom-token-list/tokens/testnet/zk-sepolia.ts" />
+declare module "@scom/scom-token-list/tokens/testnet/zk-sepolia.ts" {
+    export const Tokens_ZK_Sepolia: ({
+        name: string;
+        address: string;
+        symbol: string;
+        decimals: number;
+        isWETH: boolean;
+        isCommon?: undefined;
+    } | {
+        name: string;
+        address: string;
+        symbol: string;
+        decimals: number;
+        isCommon: boolean;
+        isWETH?: undefined;
+    })[];
+}
 /// <amd-module name="@scom/scom-token-list/tokens/testnet/index.ts" />
 declare module "@scom/scom-token-list/tokens/testnet/index.ts" {
     export { Tokens_BSC_Testnet } from "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts";
@@ -378,6 +415,7 @@ declare module "@scom/scom-token-list/tokens/testnet/index.ts" {
     export { Tokens_AminoXTestnet } from "@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts";
     export { Tokens_Cronos_Testnet } from "@scom/scom-token-list/tokens/testnet/cronos-testnet.ts";
     export { Tokens_Arbitrum_Goerli } from "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts";
+    export { Tokens_ZK_Sepolia } from "@scom/scom-token-list/tokens/testnet/zk-sepolia.ts";
 }
 /// <amd-module name="@scom/scom-token-list/tokens/index.ts" />
 declare module "@scom/scom-token-list/tokens/index.ts" {

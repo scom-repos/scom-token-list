@@ -2029,10 +2029,46 @@ define("@scom/scom-token-list/tokens/mainnet/arbitrum.ts", ["require", "exports"
         { "name": "Cruize", "address": "0x232bAF8CFc14520140c3686FbAb53Fa596a50552", "symbol": "CRUIZE", "decimals": 18 }
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/mainnet/avalanche.ts", "@scom/scom-token-list/tokens/mainnet/ethereum.ts", "@scom/scom-token-list/tokens/mainnet/polygon.ts", "@scom/scom-token-list/tokens/mainnet/bsc.ts", "@scom/scom-token-list/tokens/mainnet/fantom.ts", "@scom/scom-token-list/tokens/mainnet/cronos.ts", "@scom/scom-token-list/tokens/mainnet/arbitrum.ts"], function (require, exports, avalanche_1, ethereum_1, polygon_1, bsc_1, fantom_1, cronos_1, arbitrum_1) {
+define("@scom/scom-token-list/tokens/mainnet/zkSync.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.Tokens_Arbitrum = exports.Tokens_Cronos = exports.Tokens_Fantom = exports.Tokens_BSC = exports.Tokens_Polygon = exports.Tokens_Ethereuem = exports.Tokens_Avalanche = void 0;
+    exports.Tokens_ZK = void 0;
+    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/zkSync.ts'/> 
+    exports.Tokens_ZK = [
+        {
+            "name": "Wrapped ETH",
+            "address": "0x621Fb323C46085Ba44c5fE890d43737758Def9C8",
+            "symbol": "WETH",
+            "decimals": 18,
+            "isWETH": true
+        },
+        {
+            "name": "OpenSwap",
+            "address": "0x69a74BEcce13C9D2499C5C9C941F786428ec40F7",
+            "symbol": "OSWAP",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "USDC",
+            "address": "0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4",
+            "symbol": "USDC",
+            "decimals": 6,
+            "isCommon": true
+        },
+        {
+            "name": "Zyfi Token",
+            "address": "0x5d0d7BCa050e2E98Fd4A5e8d3bA823B49f39868d",
+            "symbol": "ZFI",
+            "decimals": 18,
+            "isCommon": true
+        },
+    ];
+});
+define("@scom/scom-token-list/tokens/mainnet/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/mainnet/avalanche.ts", "@scom/scom-token-list/tokens/mainnet/ethereum.ts", "@scom/scom-token-list/tokens/mainnet/polygon.ts", "@scom/scom-token-list/tokens/mainnet/bsc.ts", "@scom/scom-token-list/tokens/mainnet/fantom.ts", "@scom/scom-token-list/tokens/mainnet/cronos.ts", "@scom/scom-token-list/tokens/mainnet/arbitrum.ts", "@scom/scom-token-list/tokens/mainnet/zkSync.ts"], function (require, exports, avalanche_1, ethereum_1, polygon_1, bsc_1, fantom_1, cronos_1, arbitrum_1, zkSync_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Tokens_ZK = exports.Tokens_Arbitrum = exports.Tokens_Cronos = exports.Tokens_Fantom = exports.Tokens_BSC = exports.Tokens_Polygon = exports.Tokens_Ethereuem = exports.Tokens_Avalanche = void 0;
     Object.defineProperty(exports, "Tokens_Avalanche", { enumerable: true, get: function () { return avalanche_1.Tokens_Avalanche; } });
     Object.defineProperty(exports, "Tokens_Ethereuem", { enumerable: true, get: function () { return ethereum_1.Tokens_Ethereuem; } });
     Object.defineProperty(exports, "Tokens_Polygon", { enumerable: true, get: function () { return polygon_1.Tokens_Polygon; } });
@@ -2040,6 +2076,7 @@ define("@scom/scom-token-list/tokens/mainnet/index.ts", ["require", "exports", "
     Object.defineProperty(exports, "Tokens_Fantom", { enumerable: true, get: function () { return fantom_1.Tokens_Fantom; } });
     Object.defineProperty(exports, "Tokens_Cronos", { enumerable: true, get: function () { return cronos_1.Tokens_Cronos; } });
     Object.defineProperty(exports, "Tokens_Arbitrum", { enumerable: true, get: function () { return arbitrum_1.Tokens_Arbitrum; } });
+    Object.defineProperty(exports, "Tokens_ZK", { enumerable: true, get: function () { return zkSync_1.Tokens_ZK; } });
 });
 define("@scom/scom-token-list/tokens/testnet/bsc-testnet.ts", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -2506,10 +2543,81 @@ define("@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts", ["require", "e
         { "name": "dummy Cruize", "address": "0x00010b49B4A545B8390Be988e04d7e47487Fb5E1", "symbol": "CRUIZE", "decimals": 18, },
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts", "@scom/scom-token-list/tokens/testnet/fuji.ts", "@scom/scom-token-list/tokens/testnet/mumbai.ts", "@scom/scom-token-list/tokens/testnet/fantom-testnet.ts", "@scom/scom-token-list/tokens/testnet/amino.ts", "@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts", "@scom/scom-token-list/tokens/testnet/cronos-testnet.ts", "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts"], function (require, exports, bsc_testnet_1, fuji_1, mumbai_1, fantom_testnet_1, amino_1, aminoX_testnet_1, cronos_testnet_1, arbitrum_goerli_1) {
+///<amd-module name='@scom/scom-token-list/tokens/testnet/zk-sepolia.ts'/> 
+define("@scom/scom-token-list/tokens/testnet/zk-sepolia.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.Tokens_Arbitrum_Goerli = exports.Tokens_Cronos_Testnet = exports.Tokens_AminoXTestnet = exports.Tokens_Amino = exports.Tokens_Fantom_Testnet = exports.Tokens_Mumbai = exports.Tokens_Fuji = exports.Tokens_BSC_Testnet = void 0;
+    exports.Tokens_ZK_Sepolia = void 0;
+    exports.Tokens_ZK_Sepolia = [
+        {
+            "name": "Wrapped ETH",
+            "address": "0xe8FD21d796B963B508e4FFfaEF4DD641A9B3c938",
+            "symbol": "WETH",
+            "decimals": 18,
+            "isWETH": true
+        },
+        {
+            "name": "OpenSwap",
+            "address": "0x72104131605Ea4EC67e557E3C3FcdB766B305b99",
+            "symbol": "OSWAP",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "Impossible Finance",
+            "address": "0x8C55E7fAB0e424bB398987E57Cd97de9906F3DAC",
+            "symbol": "IF",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "Impossible Decentralized Incubator Access Token",
+            "address": "0x1d035A75D79b6378f5443962a098944186952A69",
+            "symbol": "IDIA",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "ABC",
+            "address": "0x6C77007A01FC3C1d955b2618D3921E635edc28b5",
+            "symbol": "ABC",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "DEF",
+            "address": "0xeEC6A6bd3Ce8Cb0979Cac81E9016a4c28DB16aA5",
+            "symbol": "DEF",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "Zyfi",
+            "address": "0xDC6cA32877e83BDd66efE32Cc6Eac6Cce68a60AF",
+            "symbol": "Zyfi",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "USDT",
+            "address": "0x1397FC510ebBA64475484fac1Ab636bFB6A349d1",
+            "symbol": "USDT",
+            "decimals": 18,
+            "isCommon": true
+        },
+        {
+            "name": "6Deci",
+            "address": "0x0A4712eb393EAf013b2cdAad2A481a27d3b4Bec1",
+            "symbol": "6Deci",
+            "decimals": 6,
+            "isCommon": true
+        }
+    ];
+});
+define("@scom/scom-token-list/tokens/testnet/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts", "@scom/scom-token-list/tokens/testnet/fuji.ts", "@scom/scom-token-list/tokens/testnet/mumbai.ts", "@scom/scom-token-list/tokens/testnet/fantom-testnet.ts", "@scom/scom-token-list/tokens/testnet/amino.ts", "@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts", "@scom/scom-token-list/tokens/testnet/cronos-testnet.ts", "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts", "@scom/scom-token-list/tokens/testnet/zk-sepolia.ts"], function (require, exports, bsc_testnet_1, fuji_1, mumbai_1, fantom_testnet_1, amino_1, aminoX_testnet_1, cronos_testnet_1, arbitrum_goerli_1, zk_sepolia_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Tokens_ZK_Sepolia = exports.Tokens_Arbitrum_Goerli = exports.Tokens_Cronos_Testnet = exports.Tokens_AminoXTestnet = exports.Tokens_Amino = exports.Tokens_Fantom_Testnet = exports.Tokens_Mumbai = exports.Tokens_Fuji = exports.Tokens_BSC_Testnet = void 0;
     Object.defineProperty(exports, "Tokens_BSC_Testnet", { enumerable: true, get: function () { return bsc_testnet_1.Tokens_BSC_Testnet; } });
     Object.defineProperty(exports, "Tokens_Fuji", { enumerable: true, get: function () { return fuji_1.Tokens_Fuji; } });
     Object.defineProperty(exports, "Tokens_Mumbai", { enumerable: true, get: function () { return mumbai_1.Tokens_Mumbai; } });
@@ -2518,6 +2626,7 @@ define("@scom/scom-token-list/tokens/testnet/index.ts", ["require", "exports", "
     Object.defineProperty(exports, "Tokens_AminoXTestnet", { enumerable: true, get: function () { return aminoX_testnet_1.Tokens_AminoXTestnet; } });
     Object.defineProperty(exports, "Tokens_Cronos_Testnet", { enumerable: true, get: function () { return cronos_testnet_1.Tokens_Cronos_Testnet; } });
     Object.defineProperty(exports, "Tokens_Arbitrum_Goerli", { enumerable: true, get: function () { return arbitrum_goerli_1.Tokens_Arbitrum_Goerli; } });
+    Object.defineProperty(exports, "Tokens_ZK_Sepolia", { enumerable: true, get: function () { return zk_sepolia_1.Tokens_ZK_Sepolia; } });
 });
 define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/mainnet/index.ts", "@scom/scom-token-list/tokens/testnet/index.ts"], function (require, exports, index_1, index_2) {
     "use strict";
@@ -2538,7 +2647,9 @@ define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/sc
         4002: index_2.Tokens_Fantom_Testnet.map(v => ({ ...v, chainId: 4002 })),
         13370: index_2.Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 })),
         42161: index_1.Tokens_Arbitrum.map(v => ({ ...v, chainId: 42161 })),
-        421613: index_2.Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 }))
+        421613: index_2.Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 })),
+        300: index_2.Tokens_ZK_Sepolia.map(v => { return { ...v, chainId: 300 }; }),
+        324: index_1.Tokens_ZK.map(v => { return { ...v, chainId: 324 }; }),
     };
     exports.DefaultERC20Tokens = DefaultERC20Tokens;
     const ChainNativeTokenByChainId = {
@@ -2556,7 +2667,9 @@ define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/sc
         4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 4002 },
         13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 13370 },
         42161: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 42161 },
-        421613: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 421613 }, // Arbitrum Goerli
+        421613: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 421613 },
+        300: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 300 },
+        324: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 324 }, // zk mainnet
     };
     exports.ChainNativeTokenByChainId = ChainNativeTokenByChainId;
     const WETHByChainId = Object.keys(DefaultERC20Tokens).reduce((result, key) => {
@@ -2903,6 +3016,8 @@ define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/compo
         56: "bsc",
         97: "bsc-testnet",
         137: "polygon",
+        300: 'zk-sepolia',
+        324: 'zksync',
         338: "cronos-testnet",
         31337: "amino",
         80001: "mumbai",
