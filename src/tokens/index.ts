@@ -1,6 +1,6 @@
 import { ITokenObject } from "../interface";
-import { Tokens_Avalanche, Tokens_BSC, Tokens_Cronos, Tokens_Ethereuem, Tokens_Fantom, Tokens_Polygon, Tokens_Arbitrum } from "./mainnet/index";
-import { Tokens_Amino, Tokens_AminoXTestnet, Tokens_BSC_Testnet, Tokens_Cronos_Testnet, Tokens_Fantom_Testnet, Tokens_Fuji, Tokens_Mumbai, Tokens_Arbitrum_Goerli } from "./testnet/index";
+import { Tokens_Avalanche, Tokens_BSC, Tokens_Cronos, Tokens_Ethereuem, Tokens_Fantom, Tokens_Polygon, Tokens_Arbitrum, Tokens_ZK } from "./mainnet/index";
+import { Tokens_Amino, Tokens_AminoXTestnet, Tokens_BSC_Testnet, Tokens_Cronos_Testnet, Tokens_Fantom_Testnet, Tokens_Fuji, Tokens_Mumbai, Tokens_Arbitrum_Goerli, Tokens_ZK_Sepolia } from "./testnet/index";
 
 const DefaultERC20Tokens: { [chainId: number]: ITokenObject[] } = {
   1: Tokens_Ethereuem.map(v => ({ ...v, chainId: 1 })),
@@ -17,7 +17,9 @@ const DefaultERC20Tokens: { [chainId: number]: ITokenObject[] } = {
   4002: Tokens_Fantom_Testnet.map(v => ({ ...v, chainId: 4002 })),
   13370: Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 })),
   42161: Tokens_Arbitrum.map(v => ({ ...v, chainId: 42161 })),
-  421613: Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 }))
+  421613: Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 })),
+  300: Tokens_ZK_Sepolia.map(v => { return { ...v, chainId: 300 } }),
+  324: Tokens_ZK.map(v => { return { ...v, chainId: 324 } }),
 }
 
 const ChainNativeTokenByChainId: { [chainId: number]: ITokenObject } = {
@@ -36,6 +38,8 @@ const ChainNativeTokenByChainId: { [chainId: number]: ITokenObject } = {
   13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 13370 }, //Amino X Testnet
   42161: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 42161 }, // Arbitrum One
   421613: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 421613 }, // Arbitrum Goerli
+  300: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 300 }, // zk Sepolia
+  324: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 324 }, // zk mainnet
 }
 
 const WETHByChainId = Object.keys(DefaultERC20Tokens).reduce((result: {[chainId: number]: ITokenObject}, key: string) => {

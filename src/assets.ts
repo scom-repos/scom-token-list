@@ -12,6 +12,8 @@ const TokenFolderName: { [key: number]: string } = {
   56: "bsc",
   97: "bsc-testnet",
   137: "polygon",
+  300: 'zk-sepolia',
+  324: 'zksync',
   338: "cronos-testnet",
   31337: "amino",
   80001: "mumbai",
