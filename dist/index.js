@@ -2832,9 +2832,12 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             return this._tokenMapByChainId[chainId];
         }
         getTokenList(chainId) {
+            const tokenList = [];
             if (!chainId)
-                return [];
-            const tokenList = [...this._defaultTokensByChain[chainId]];
+                return tokenList;
+            if (this._defaultTokensByChain && this._defaultTokensByChain[chainId]) {
+                tokenList.push(...this._defaultTokensByChain[chainId]);
+            }
             const userCustomTokens = (0, utils_1.getUserTokens)(chainId);
             if (userCustomTokens) {
                 userCustomTokens.forEach(v => tokenList.push({ ...v, isNew: false, isCustom: true }));
