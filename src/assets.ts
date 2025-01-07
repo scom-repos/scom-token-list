@@ -27,7 +27,8 @@ const TokenFolderName: { [key: number]: string } = {
 }
 
 const CommonTokenPathMap: { [key: string]: string } = {
-    'USDT': 'img/tokens/USDT.png'
+    'USDT': 'img/tokens/USDT.png',
+    'TON': 'img/tokens/TON.png',
 }
 
 function tokenPath(tokenObj?: ITokenObject, chainId?: number): string {

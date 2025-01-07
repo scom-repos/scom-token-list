@@ -3027,7 +3027,8 @@ define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/compo
         421613: "arbitrum-goerli",
     };
     const CommonTokenPathMap = {
-        'USDT': 'img/tokens/USDT.png'
+        'USDT': 'img/tokens/USDT.png',
+        'TON': 'img/tokens/TON.png',
     };
     function tokenPath(tokenObj, chainId) {
         return fullPath(getTokenIconPath(tokenObj, chainId));
