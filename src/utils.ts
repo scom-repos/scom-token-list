@@ -1,5 +1,5 @@
 import { ITokenObject } from './interface';
-import { ChainNativeTokenByChainId } from './tokens/index';
+import { ChainNativeTokenByChainId } from './evmTokens/index';
 
 const TOKENS = "oswap_user_tokens_";
 
