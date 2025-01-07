@@ -1,5 +1,6 @@
 export interface ITokenObject {
-  chainId: number;
+  networkCode?: string;
+  chainId?: number;
   address?: string;
   name: string;
   decimals: number;

@@ -1,7 +1,8 @@
 /// <amd-module name="@scom/scom-token-list/interface.ts" />
 declare module "@scom/scom-token-list/interface.ts" {
     export interface ITokenObject {
-        chainId: number;
+        networkCode?: string;
+        chainId?: number;
         address?: string;
         name: string;
         decimals: number;
@@ -18,8 +19,8 @@ declare module "@scom/scom-token-list/interface.ts" {
         [token: string]: ITokenObject;
     };
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/avalanche.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/avalanche.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/avalanche.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/avalanche.ts" {
     export const Tokens_Avalanche: ({
         address: string;
         name: string;
@@ -43,8 +44,8 @@ declare module "@scom/scom-token-list/tokens/mainnet/avalanche.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/ethereum.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/ethereum.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/ethereum.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/ethereum.ts" {
     export const Tokens_Ethereuem: ({
         address: string;
         name: string;
@@ -68,8 +69,8 @@ declare module "@scom/scom-token-list/tokens/mainnet/ethereum.ts" {
         isWETH: boolean;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/polygon.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/polygon.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/polygon.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/polygon.ts" {
     export const Tokens_Polygon: ({
         address: string;
         name: string;
@@ -93,8 +94,8 @@ declare module "@scom/scom-token-list/tokens/mainnet/polygon.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/bsc.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/bsc.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/bsc.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/bsc.ts" {
     export const Tokens_BSC: ({
         name: string;
         symbol: string;
@@ -118,8 +119,8 @@ declare module "@scom/scom-token-list/tokens/mainnet/bsc.ts" {
         isWETH: boolean;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/fantom.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/fantom.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/fantom.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/fantom.ts" {
     export const Tokens_Fantom: ({
         address: string;
         name: string;
@@ -143,8 +144,8 @@ declare module "@scom/scom-token-list/tokens/mainnet/fantom.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/cronos.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/cronos.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/cronos.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/cronos.ts" {
     export const Tokens_Cronos: ({
         address: string;
         name: string;
@@ -161,8 +162,8 @@ declare module "@scom/scom-token-list/tokens/mainnet/cronos.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/arbitrum.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/arbitrum.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/arbitrum.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/arbitrum.ts" {
     export const Tokens_Arbitrum: ({
         name: string;
         address: string;
@@ -186,8 +187,8 @@ declare module "@scom/scom-token-list/tokens/mainnet/arbitrum.ts" {
         isWETH: boolean;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/zkSync.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/zkSync.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/zkSync.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/zkSync.ts" {
     export const Tokens_ZK: ({
         name: string;
         address: string;
@@ -204,19 +205,19 @@ declare module "@scom/scom-token-list/tokens/mainnet/zkSync.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/mainnet/index.ts" />
-declare module "@scom/scom-token-list/tokens/mainnet/index.ts" {
-    export { Tokens_Avalanche } from "@scom/scom-token-list/tokens/mainnet/avalanche.ts";
-    export { Tokens_Ethereuem } from "@scom/scom-token-list/tokens/mainnet/ethereum.ts";
-    export { Tokens_Polygon } from "@scom/scom-token-list/tokens/mainnet/polygon.ts";
-    export { Tokens_BSC } from "@scom/scom-token-list/tokens/mainnet/bsc.ts";
-    export { Tokens_Fantom } from "@scom/scom-token-list/tokens/mainnet/fantom.ts";
-    export { Tokens_Cronos } from "@scom/scom-token-list/tokens/mainnet/cronos.ts";
-    export { Tokens_Arbitrum } from "@scom/scom-token-list/tokens/mainnet/arbitrum.ts";
-    export { Tokens_ZK } from "@scom/scom-token-list/tokens/mainnet/zkSync.ts";
+/// <amd-module name="@scom/scom-token-list/evmTokens/mainnet/index.ts" />
+declare module "@scom/scom-token-list/evmTokens/mainnet/index.ts" {
+    export { Tokens_Avalanche } from "@scom/scom-token-list/evmTokens/mainnet/avalanche.ts";
+    export { Tokens_Ethereuem } from "@scom/scom-token-list/evmTokens/mainnet/ethereum.ts";
+    export { Tokens_Polygon } from "@scom/scom-token-list/evmTokens/mainnet/polygon.ts";
+    export { Tokens_BSC } from "@scom/scom-token-list/evmTokens/mainnet/bsc.ts";
+    export { Tokens_Fantom } from "@scom/scom-token-list/evmTokens/mainnet/fantom.ts";
+    export { Tokens_Cronos } from "@scom/scom-token-list/evmTokens/mainnet/cronos.ts";
+    export { Tokens_Arbitrum } from "@scom/scom-token-list/evmTokens/mainnet/arbitrum.ts";
+    export { Tokens_ZK } from "@scom/scom-token-list/evmTokens/mainnet/zkSync.ts";
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/bsc-testnet.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/bsc-testnet.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/bsc-testnet.ts" {
     export const Tokens_BSC_Testnet: ({
         name: string;
         address: string;
@@ -240,8 +241,8 @@ declare module "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/fuji.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/fuji.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/fuji.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/fuji.ts" {
     export const Tokens_Fuji: ({
         name: string;
         address: string;
@@ -265,8 +266,8 @@ declare module "@scom/scom-token-list/tokens/testnet/fuji.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/mumbai.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/mumbai.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/mumbai.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/mumbai.ts" {
     export const Tokens_Mumbai: ({
         name: string;
         address: string;
@@ -290,8 +291,8 @@ declare module "@scom/scom-token-list/tokens/testnet/mumbai.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/fantom-testnet.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/fantom-testnet.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/fantom-testnet.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/fantom-testnet.ts" {
     export const Tokens_Fantom_Testnet: ({
         address: string;
         decimals: number;
@@ -308,8 +309,8 @@ declare module "@scom/scom-token-list/tokens/testnet/fantom-testnet.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/amino.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/amino.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/amino.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/amino.ts" {
     export const Tokens_Amino: ({
         name: string;
         address: string;
@@ -326,8 +327,8 @@ declare module "@scom/scom-token-list/tokens/testnet/amino.ts" {
         isWETH: boolean;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/aminoX-testnet.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/aminoX-testnet.ts" {
     export const Tokens_AminoXTestnet: ({
         name: string;
         address: string;
@@ -344,8 +345,8 @@ declare module "@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts" {
         isWETH: boolean;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/cronos-testnet.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/cronos-testnet.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/cronos-testnet.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/cronos-testnet.ts" {
     export const Tokens_Cronos_Testnet: ({
         address: string;
         name: string;
@@ -362,8 +363,8 @@ declare module "@scom/scom-token-list/tokens/testnet/cronos-testnet.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/arbitrum-goerli.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/arbitrum-goerli.ts" {
     export const Tokens_Arbitrum_Goerli: ({
         name: string;
         address: string;
@@ -387,8 +388,8 @@ declare module "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/zk-sepolia.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/zk-sepolia.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/zk-sepolia.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/zk-sepolia.ts" {
     export const Tokens_ZK_Sepolia: ({
         name: string;
         address: string;
@@ -405,20 +406,20 @@ declare module "@scom/scom-token-list/tokens/testnet/zk-sepolia.ts" {
         isWETH?: undefined;
     })[];
 }
-/// <amd-module name="@scom/scom-token-list/tokens/testnet/index.ts" />
-declare module "@scom/scom-token-list/tokens/testnet/index.ts" {
-    export { Tokens_BSC_Testnet } from "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts";
-    export { Tokens_Fuji } from "@scom/scom-token-list/tokens/testnet/fuji.ts";
-    export { Tokens_Mumbai } from "@scom/scom-token-list/tokens/testnet/mumbai.ts";
-    export { Tokens_Fantom_Testnet } from "@scom/scom-token-list/tokens/testnet/fantom-testnet.ts";
-    export { Tokens_Amino } from "@scom/scom-token-list/tokens/testnet/amino.ts";
-    export { Tokens_AminoXTestnet } from "@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts";
-    export { Tokens_Cronos_Testnet } from "@scom/scom-token-list/tokens/testnet/cronos-testnet.ts";
-    export { Tokens_Arbitrum_Goerli } from "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts";
-    export { Tokens_ZK_Sepolia } from "@scom/scom-token-list/tokens/testnet/zk-sepolia.ts";
+/// <amd-module name="@scom/scom-token-list/evmTokens/testnet/index.ts" />
+declare module "@scom/scom-token-list/evmTokens/testnet/index.ts" {
+    export { Tokens_BSC_Testnet } from "@scom/scom-token-list/evmTokens/testnet/bsc-testnet.ts";
+    export { Tokens_Fuji } from "@scom/scom-token-list/evmTokens/testnet/fuji.ts";
+    export { Tokens_Mumbai } from "@scom/scom-token-list/evmTokens/testnet/mumbai.ts";
+    export { Tokens_Fantom_Testnet } from "@scom/scom-token-list/evmTokens/testnet/fantom-testnet.ts";
+    export { Tokens_Amino } from "@scom/scom-token-list/evmTokens/testnet/amino.ts";
+    export { Tokens_AminoXTestnet } from "@scom/scom-token-list/evmTokens/testnet/aminoX-testnet.ts";
+    export { Tokens_Cronos_Testnet } from "@scom/scom-token-list/evmTokens/testnet/cronos-testnet.ts";
+    export { Tokens_Arbitrum_Goerli } from "@scom/scom-token-list/evmTokens/testnet/arbitrum-goerli.ts";
+    export { Tokens_ZK_Sepolia } from "@scom/scom-token-list/evmTokens/testnet/zk-sepolia.ts";
 }
-/// <amd-module name="@scom/scom-token-list/tokens/index.ts" />
-declare module "@scom/scom-token-list/tokens/index.ts" {
+/// <amd-module name="@scom/scom-token-list/evmTokens/index.ts" />
+declare module "@scom/scom-token-list/evmTokens/index.ts" {
     import { ITokenObject } from "@scom/scom-token-list/interface.ts";
     const DefaultERC20Tokens: {
         [chainId: number]: ITokenObject[];
@@ -433,6 +434,9 @@ declare module "@scom/scom-token-list/tokens/index.ts" {
     const DefaultTokens: {
         [chainId: number]: ITokenObject[];
     };
+    const DefaultTokensByNetworkCode: {
+        [networkCode: string]: ITokenObject[];
+    };
     const ToUSDPriceFeedAddressesMap: {
         [chainId: number]: {
             [token: string]: string;
@@ -443,7 +447,7 @@ declare module "@scom/scom-token-list/tokens/index.ts" {
             [token: string]: string;
         };
     };
-    export { DefaultERC20Tokens, ChainNativeTokenByChainId, WETHByChainId, DefaultTokens, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference, getOpenSwapToken };
+    export { DefaultERC20Tokens, ChainNativeTokenByChainId, WETHByChainId, DefaultTokens, DefaultTokensByNetworkCode, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference, getOpenSwapToken };
 }
 /// <amd-module name="@scom/scom-token-list/utils.ts" />
 declare module "@scom/scom-token-list/utils.ts" {
@@ -462,16 +466,18 @@ declare module "@scom/scom-token-list/utils.ts" {
 /// <amd-module name="@scom/scom-token-list/token.ts" />
 declare module "@scom/scom-token-list/token.ts" {
     import { ITokenObject, TokenMapType } from "@scom/scom-token-list/interface.ts";
-    export type DefaultTokensByChainType = Record<number, ITokenObject[]>;
+    export type DefaultTokensByNetworkCodeType = Record<string, ITokenObject[]>;
     export type TokenBalancesType = Record<string, string>;
     export class TokenStore {
-        private _defaultTokensByChain;
+        private _defaultTokensByNetworkCode;
+        private _defaultTokensByChainId;
         private _tokenBalancesByChainId;
         private _tokenMapByChainId;
-        constructor(defaultTokensByChain: DefaultTokensByChainType);
+        constructor(defaultTokensByNetworkCode: DefaultTokensByNetworkCodeType);
         getTokenBalancesByChainId(chainId: number): TokenBalancesType;
         getTokenMapByChainId(chainId: number): TokenMapType;
         getTokenList(chainId: number): ITokenObject[];
+        getTokenListByNetworkCode(networkCode: string): ITokenObject[];
         private getERC20Balance;
         private _updateAllTokenBalances;
         updateTokenBalancesByChainId(chainId: number, erc20TokenList?: ITokenObject[]): Promise<TokenBalancesType>;
@@ -479,6 +485,12 @@ declare module "@scom/scom-token-list/token.ts" {
         private _updateTokenMapData;
         updateTokenMapData(chainId: number): TokenMapType;
     }
+}
+/// <amd-module name="@scom/scom-token-list/tonTokens/index.ts" />
+declare module "@scom/scom-token-list/tonTokens/index.ts" {
+    import { ITokenObject } from "@scom/scom-token-list/interface.ts";
+    const DefaultTokensByNetworkCode: Record<string, ITokenObject[]>;
+    export { DefaultTokensByNetworkCode };
 }
 /// <amd-module name="@scom/scom-token-list/assets.ts" />
 declare module "@scom/scom-token-list/assets.ts" {
@@ -488,7 +500,7 @@ declare module "@scom/scom-token-list/assets.ts" {
     const _default: {
         fullPath: typeof fullPath;
         tokenPath: typeof tokenPath;
-        getTokenIconPath: (tokenObj?: any, chainId?: number) => string;
+        getTokenIconPath: (tokenObj?: ITokenObject, chainId?: number) => string;
         fallbackUrl: string;
     };
     export default _default;
@@ -497,10 +509,13 @@ declare module "@scom/scom-token-list/assets.ts" {
 declare module "@scom/scom-token-list" {
     import { TokenStore } from "@scom/scom-token-list/token.ts";
     import { hasUserToken, setUserTokens, addUserTokens } from "@scom/scom-token-list/utils.ts";
-    import { DefaultERC20Tokens, ChainNativeTokenByChainId, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference } from "@scom/scom-token-list/tokens/index.ts";
+    import { DefaultERC20Tokens, ChainNativeTokenByChainId, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference } from "@scom/scom-token-list/evmTokens/index.ts";
     import assets from "@scom/scom-token-list/assets.ts";
     import { ITokenObject } from "@scom/scom-token-list/interface.ts";
+    const DefaultTokensByNetworkCode: {
+        [x: string]: ITokenObject[];
+    };
     let tokenStore: TokenStore;
     const setTokenStore: () => TokenStore;
-    export { ITokenObject, hasUserToken, setUserTokens, addUserTokens, DefaultERC20Tokens, ChainNativeTokenByChainId, tokenStore, setTokenStore, assets, DefaultTokens, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference };
+    export { ITokenObject, hasUserToken, setUserTokens, addUserTokens, DefaultERC20Tokens, ChainNativeTokenByChainId, tokenStore, setTokenStore, assets, DefaultTokens, DefaultTokensByNetworkCode, WETHByChainId, ToUSDPriceFeedAddressesMap, tokenPriceAMMReference };
 }

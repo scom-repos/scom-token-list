@@ -2,31 +2,22 @@ import { BigNumber, Contracts, IClientWallet, IRpcWallet, IWallet, RpcWallet, Wa
 import { ITokenObject, TokenMapType } from './interface';
 import { getChainNativeToken, getUserTokens } from './utils';
 
-export type DefaultTokensByChainType = Record<number, ITokenObject[]>;
-
+export type DefaultTokensByNetworkCodeType = Record<string, ITokenObject[]>;
 export type TokenBalancesType = Record<string, string>;
 
 export class TokenStore {
-  private _defaultTokensByChain: DefaultTokensByChainType;
-  // private _tokenBalances: TokenBalancesType = {}; //FIXME: To be removed
+  private _defaultTokensByNetworkCode: DefaultTokensByNetworkCodeType;
+  private _defaultTokensByChainId: Record<number, ITokenObject[]> = {};
   private _tokenBalancesByChainId: Record<number, TokenBalancesType> = {};
-  // private _tokenMap: TokenMapType = {}; //FIXME: To be removed
   private _tokenMapByChainId: Record<number, TokenMapType> = {};
-  // private _promiseMap: Record<string, Promise<any>> = {};
 
-  constructor(defaultTokensByChain: DefaultTokensByChainType) {
-    this._defaultTokensByChain = defaultTokensByChain;
+  constructor(defaultTokensByNetworkCode: DefaultTokensByNetworkCodeType) {
+    this._defaultTokensByNetworkCode = defaultTokensByNetworkCode;
+    this._defaultTokensByChainId = {};
+    for (let networkCode in defaultTokensByNetworkCode) {
+      this._defaultTokensByChainId[Number(networkCode)] = defaultTokensByNetworkCode[networkCode];
+    }
   }
-
-  //FIXME: To be removed
-  // public get tokenBalances() {
-  //   return this._tokenBalances;
-  // }
-
-  //FIXME: To be removed
-  // public get tokenMap() { 
-  //   return this._tokenMap;
-  // }
 
   public getTokenBalancesByChainId(chainId: number) {
     return this._tokenBalancesByChainId[chainId];
@@ -40,8 +31,8 @@ export class TokenStore {
     const tokenList:ITokenObject[] = [];
     if (!chainId) return tokenList;
 
-    if (this._defaultTokensByChain && this._defaultTokensByChain[chainId]){
-      tokenList.push(...this._defaultTokensByChain[chainId]);
+    if (this._defaultTokensByChainId && this._defaultTokensByChainId[chainId]){
+      tokenList.push(...this._defaultTokensByChainId[chainId]);
     }
     const userCustomTokens = getUserTokens(chainId);
     if (userCustomTokens) {
@@ -50,22 +41,15 @@ export class TokenStore {
     return tokenList;
   }
 
+  public getTokenListByNetworkCode(networkCode: string) {
+    return this._defaultTokensByNetworkCode[networkCode];
+  }
+
   private async getERC20Balance(wallet: IWallet, token: string) {
     const erc20 = new Contracts.ERC20(wallet, token);
     const balance = await erc20.balanceOf(wallet.address);
     return balance;
   }
-
-  // public getTokenBalance(token: ITokenObject): string {
-  //   let balance = '0';
-  //   if (!token || !this._tokenBalances) return balance;
-  //   if (token.address) {
-  //     balance = this._tokenBalances[token.address.toLowerCase()];
-  //   } else {
-  //     balance = this._tokenBalances[token.symbol];
-  //   }
-  //   return balance;
-  // }
 
   private async _updateAllTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[], nativeToken: ITokenObject): Promise<TokenBalancesType> {
     let allTokenBalancesMap: TokenBalancesType = {};
@@ -137,49 +121,10 @@ export class TokenStore {
     }
   }
 
-  //FIXME: To be removed
-  // public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
-  //   let allTokenBalancesMap: TokenBalancesType = {};
-  //   if (this._promiseMap[wallet.instanceId]) {
-  //     return this._promiseMap[wallet.instanceId];
-  //   }
-  //   let promise = new Promise<TokenBalancesType>(async (resolve, reject) => {
-  //     try {
-  //       const tokenList = this.getTokenList(wallet.chainId);
-  //       if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
-  //       const nativeToken: any = tokenList.find(v => !v.address);
-  //       const erc20TokenList = tokenList.filter(v => !!v.address);
-  //       allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-  //       this._tokenBalances = allTokenBalancesMap;
-  //       this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
-  //       this._promiseMap[wallet.instanceId] = null;
-  //       resolve(allTokenBalancesMap);
-  //     } catch (error) {
-  //       this._promiseMap[wallet.instanceId] = null;
-  //       reject(error);
-  //     }
-  //   })
-  //   this._promiseMap[wallet.instanceId] = promise;
-  //   return promise;
-  // }
-
-  //FIXME: To be removed
-  // public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
-  //   let tokenBalancesMap: TokenBalancesType = {};
-  //   if (!wallet.chainId) return tokenBalancesMap;
-  //   const nativeToken = getChainNativeToken(wallet.chainId);
-  //   tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-  //   for (let tokenAddress of Object.keys(tokenBalancesMap)) {
-  //     this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
-  //   }
-  //   this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
-  //   return this._tokenBalances;
-  // }
-
   private _updateTokenMapData(chainId: number): TokenMapType {
     let allTokensMap: TokenMapType = {};
-    if (this._defaultTokensByChain[chainId]) {
-      let defaultTokenList = this._defaultTokensByChain[chainId].sort((a, b) => {
+    if (this._defaultTokensByChainId[chainId]) {
+      let defaultTokenList = this._defaultTokensByChainId[chainId].sort((a, b) => {
         if (a.symbol.toLowerCase() < b.symbol.toLowerCase()) { return -1; }
         if (a.symbol.toLowerCase() > b.symbol.toLowerCase()) { return 1; }
         return 0;
@@ -201,7 +146,6 @@ export class TokenStore {
 
   public updateTokenMapData(chainId: number): TokenMapType {
     let allTokensMap = this._updateTokenMapData(chainId);
-    // this._tokenMap = allTokensMap;
     this._tokenMapByChainId[chainId] = allTokensMap;
     return allTokensMap;
   }

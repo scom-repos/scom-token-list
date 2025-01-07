@@ -3,11 +3,11 @@ define("@scom/scom-token-list/interface.ts", ["require", "exports"], function (r
     Object.defineProperty(exports, "__esModule", { value: true });
     ;
 });
-define("@scom/scom-token-list/tokens/mainnet/avalanche.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/avalanche.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Avalanche = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/avalanche.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/avalanche.ts'/> 
     exports.Tokens_Avalanche = [
         {
             "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -77,11 +77,11 @@ define("@scom/scom-token-list/tokens/mainnet/avalanche.ts", ["require", "exports
         }
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/ethereum.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/ethereum.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Ethereuem = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/ethereum.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/ethereum.ts'/> 
     exports.Tokens_Ethereuem = [
         {
             "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
@@ -331,11 +331,11 @@ define("@scom/scom-token-list/tokens/mainnet/ethereum.ts", ["require", "exports"
         }
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/polygon.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/polygon.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Polygon = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/polygon.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/polygon.ts'/> 
     exports.Tokens_Polygon = [
         {
             "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
@@ -377,11 +377,11 @@ define("@scom/scom-token-list/tokens/mainnet/polygon.ts", ["require", "exports"]
         }
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/bsc.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/bsc.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_BSC = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/bsc.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/bsc.ts'/> 
     exports.Tokens_BSC = [
         {
             "name": "OpenSwap",
@@ -1897,11 +1897,11 @@ define("@scom/scom-token-list/tokens/mainnet/bsc.ts", ["require", "exports"], fu
         },
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/fantom.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/fantom.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Fantom = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/fantom.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/fantom.ts'/> 
     exports.Tokens_Fantom = [
         {
             "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
@@ -1937,11 +1937,11 @@ define("@scom/scom-token-list/tokens/mainnet/fantom.ts", ["require", "exports"],
         { "address": "0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355", "name": "Frax", "symbol": "FRAX", "decimals": 18 }
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/cronos.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/cronos.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Cronos = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/cronos.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/cronos.ts'/> 
     exports.Tokens_Cronos = [
         {
             "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
@@ -1988,11 +1988,11 @@ define("@scom/scom-token-list/tokens/mainnet/cronos.ts", ["require", "exports"],
         }
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/arbitrum.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/arbitrum.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Arbitrum = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/arbitrum.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/arbitrum.ts'/> 
     exports.Tokens_Arbitrum = [
         {
             "name": "OpenSwap",
@@ -2029,11 +2029,11 @@ define("@scom/scom-token-list/tokens/mainnet/arbitrum.ts", ["require", "exports"
         { "name": "Cruize", "address": "0x232bAF8CFc14520140c3686FbAb53Fa596a50552", "symbol": "CRUIZE", "decimals": 18 }
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/zkSync.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/mainnet/zkSync.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_ZK = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/mainnet/zkSync.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/mainnet/zkSync.ts'/> 
     exports.Tokens_ZK = [
         {
             "name": "Wrapped ETH",
@@ -2065,7 +2065,7 @@ define("@scom/scom-token-list/tokens/mainnet/zkSync.ts", ["require", "exports"],
         },
     ];
 });
-define("@scom/scom-token-list/tokens/mainnet/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/mainnet/avalanche.ts", "@scom/scom-token-list/tokens/mainnet/ethereum.ts", "@scom/scom-token-list/tokens/mainnet/polygon.ts", "@scom/scom-token-list/tokens/mainnet/bsc.ts", "@scom/scom-token-list/tokens/mainnet/fantom.ts", "@scom/scom-token-list/tokens/mainnet/cronos.ts", "@scom/scom-token-list/tokens/mainnet/arbitrum.ts", "@scom/scom-token-list/tokens/mainnet/zkSync.ts"], function (require, exports, avalanche_1, ethereum_1, polygon_1, bsc_1, fantom_1, cronos_1, arbitrum_1, zkSync_1) {
+define("@scom/scom-token-list/evmTokens/mainnet/index.ts", ["require", "exports", "@scom/scom-token-list/evmTokens/mainnet/avalanche.ts", "@scom/scom-token-list/evmTokens/mainnet/ethereum.ts", "@scom/scom-token-list/evmTokens/mainnet/polygon.ts", "@scom/scom-token-list/evmTokens/mainnet/bsc.ts", "@scom/scom-token-list/evmTokens/mainnet/fantom.ts", "@scom/scom-token-list/evmTokens/mainnet/cronos.ts", "@scom/scom-token-list/evmTokens/mainnet/arbitrum.ts", "@scom/scom-token-list/evmTokens/mainnet/zkSync.ts"], function (require, exports, avalanche_1, ethereum_1, polygon_1, bsc_1, fantom_1, cronos_1, arbitrum_1, zkSync_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_ZK = exports.Tokens_Arbitrum = exports.Tokens_Cronos = exports.Tokens_Fantom = exports.Tokens_BSC = exports.Tokens_Polygon = exports.Tokens_Ethereuem = exports.Tokens_Avalanche = void 0;
@@ -2078,11 +2078,11 @@ define("@scom/scom-token-list/tokens/mainnet/index.ts", ["require", "exports", "
     Object.defineProperty(exports, "Tokens_Arbitrum", { enumerable: true, get: function () { return arbitrum_1.Tokens_Arbitrum; } });
     Object.defineProperty(exports, "Tokens_ZK", { enumerable: true, get: function () { return zkSync_1.Tokens_ZK; } });
 });
-define("@scom/scom-token-list/tokens/testnet/bsc-testnet.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/bsc-testnet.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_BSC_Testnet = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/bsc-testnet.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/bsc-testnet.ts'/> 
     exports.Tokens_BSC_Testnet = [
         {
             "name": "Wrapped BNB",
@@ -2229,11 +2229,11 @@ define("@scom/scom-token-list/tokens/testnet/bsc-testnet.ts", ["require", "expor
         },
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/fuji.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/fuji.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Fuji = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/fuji.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/fuji.ts'/> 
     exports.Tokens_Fuji = [
         {
             "name": "Wrapped AVAX",
@@ -2312,11 +2312,11 @@ define("@scom/scom-token-list/tokens/testnet/fuji.ts", ["require", "exports"], f
         }
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/mumbai.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/mumbai.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Mumbai = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/mumbai.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/mumbai.ts'/> 
     exports.Tokens_Mumbai = [
         {
             "name": "USDT",
@@ -2360,11 +2360,11 @@ define("@scom/scom-token-list/tokens/testnet/mumbai.ts", ["require", "exports"],
         }
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/fantom-testnet.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/fantom-testnet.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Fantom_Testnet = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/fantom-testnet.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/fantom-testnet.ts'/> 
     exports.Tokens_Fantom_Testnet = [
         {
             "address": "0xf1277d1Ed8AD466beddF92ef448A132661956621",
@@ -2382,11 +2382,11 @@ define("@scom/scom-token-list/tokens/testnet/fantom-testnet.ts", ["require", "ex
         }
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/amino.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/amino.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Amino = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/amino.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/amino.ts'/> 
     exports.Tokens_Amino = [
         {
             "name": "USDT",
@@ -2416,11 +2416,11 @@ define("@scom/scom-token-list/tokens/testnet/amino.ts", ["require", "exports"], 
         }
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/aminoX-testnet.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_AminoXTestnet = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/aminoX-testnet.ts'/> 
     exports.Tokens_AminoXTestnet = [
         {
             "name": "OpenSwap",
@@ -2453,11 +2453,11 @@ define("@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts", ["require", "ex
         }
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/cronos-testnet.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/cronos-testnet.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Cronos_Testnet = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/cronos-testnet.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/cronos-testnet.ts'/> 
     exports.Tokens_Cronos_Testnet = [
         {
             "address": "0x6a3173618859C7cd40fAF6921b5E9eB6A76f1fD4",
@@ -2511,11 +2511,11 @@ define("@scom/scom-token-list/tokens/testnet/cronos-testnet.ts", ["require", "ex
         }
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts", ["require", "exports"], function (require, exports) {
+define("@scom/scom-token-list/evmTokens/testnet/arbitrum-goerli.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_Arbitrum_Goerli = void 0;
-    ///<amd-module name='@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts'/> 
+    ///<amd-module name='@scom/scom-token-list/evmTokens/testnet/arbitrum-goerli.ts'/> 
     exports.Tokens_Arbitrum_Goerli = [
         {
             "name": "OpenSwap",
@@ -2543,8 +2543,8 @@ define("@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts", ["require", "e
         { "name": "dummy Cruize", "address": "0x00010b49B4A545B8390Be988e04d7e47487Fb5E1", "symbol": "CRUIZE", "decimals": 18, },
     ];
 });
-///<amd-module name='@scom/scom-token-list/tokens/testnet/zk-sepolia.ts'/> 
-define("@scom/scom-token-list/tokens/testnet/zk-sepolia.ts", ["require", "exports"], function (require, exports) {
+///<amd-module name='@scom/scom-token-list/evmTokens/testnet/zk-sepolia.ts'/> 
+define("@scom/scom-token-list/evmTokens/testnet/zk-sepolia.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_ZK_Sepolia = void 0;
@@ -2614,7 +2614,7 @@ define("@scom/scom-token-list/tokens/testnet/zk-sepolia.ts", ["require", "export
         }
     ];
 });
-define("@scom/scom-token-list/tokens/testnet/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/testnet/bsc-testnet.ts", "@scom/scom-token-list/tokens/testnet/fuji.ts", "@scom/scom-token-list/tokens/testnet/mumbai.ts", "@scom/scom-token-list/tokens/testnet/fantom-testnet.ts", "@scom/scom-token-list/tokens/testnet/amino.ts", "@scom/scom-token-list/tokens/testnet/aminoX-testnet.ts", "@scom/scom-token-list/tokens/testnet/cronos-testnet.ts", "@scom/scom-token-list/tokens/testnet/arbitrum-goerli.ts", "@scom/scom-token-list/tokens/testnet/zk-sepolia.ts"], function (require, exports, bsc_testnet_1, fuji_1, mumbai_1, fantom_testnet_1, amino_1, aminoX_testnet_1, cronos_testnet_1, arbitrum_goerli_1, zk_sepolia_1) {
+define("@scom/scom-token-list/evmTokens/testnet/index.ts", ["require", "exports", "@scom/scom-token-list/evmTokens/testnet/bsc-testnet.ts", "@scom/scom-token-list/evmTokens/testnet/fuji.ts", "@scom/scom-token-list/evmTokens/testnet/mumbai.ts", "@scom/scom-token-list/evmTokens/testnet/fantom-testnet.ts", "@scom/scom-token-list/evmTokens/testnet/amino.ts", "@scom/scom-token-list/evmTokens/testnet/aminoX-testnet.ts", "@scom/scom-token-list/evmTokens/testnet/cronos-testnet.ts", "@scom/scom-token-list/evmTokens/testnet/arbitrum-goerli.ts", "@scom/scom-token-list/evmTokens/testnet/zk-sepolia.ts"], function (require, exports, bsc_testnet_1, fuji_1, mumbai_1, fantom_testnet_1, amino_1, aminoX_testnet_1, cronos_testnet_1, arbitrum_goerli_1, zk_sepolia_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Tokens_ZK_Sepolia = exports.Tokens_Arbitrum_Goerli = exports.Tokens_Cronos_Testnet = exports.Tokens_AminoXTestnet = exports.Tokens_Amino = exports.Tokens_Fantom_Testnet = exports.Tokens_Mumbai = exports.Tokens_Fuji = exports.Tokens_BSC_Testnet = void 0;
@@ -2628,48 +2628,67 @@ define("@scom/scom-token-list/tokens/testnet/index.ts", ["require", "exports", "
     Object.defineProperty(exports, "Tokens_Arbitrum_Goerli", { enumerable: true, get: function () { return arbitrum_goerli_1.Tokens_Arbitrum_Goerli; } });
     Object.defineProperty(exports, "Tokens_ZK_Sepolia", { enumerable: true, get: function () { return zk_sepolia_1.Tokens_ZK_Sepolia; } });
 });
-define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/scom-token-list/tokens/mainnet/index.ts", "@scom/scom-token-list/tokens/testnet/index.ts"], function (require, exports, index_1, index_2) {
+define("@scom/scom-token-list/evmTokens/index.ts", ["require", "exports", "@scom/scom-token-list/evmTokens/mainnet/index.ts", "@scom/scom-token-list/evmTokens/testnet/index.ts"], function (require, exports, index_1, index_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getOpenSwapToken = exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.DefaultTokens = exports.WETHByChainId = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = void 0;
+    exports.getOpenSwapToken = exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.DefaultTokensByNetworkCode = exports.DefaultTokens = exports.WETHByChainId = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = void 0;
+    const chainIdToNetworkCode = {
+        1: 'ETH',
+        25: 'CRO',
+        56: 'BSC',
+        97: 'BSC-TESTNET',
+        137: 'MATIC',
+        338: 'CRO-TESTNET',
+        31337: 'ACT',
+        80001: 'MUMBAI',
+        43113: 'FUJI',
+        43114: 'AVAX',
+        250: 'FTM',
+        4002: 'FTM-TESTNET',
+        13370: 'ACT-TESTNET',
+        42161: 'ARB',
+        421613: 'ARB-GOERLI',
+        300: 'ZK-SEPOLIA',
+        324: 'ZK'
+    };
     const DefaultERC20Tokens = {
-        1: index_1.Tokens_Ethereuem.map(v => ({ ...v, chainId: 1 })),
-        25: index_1.Tokens_Cronos.map(v => ({ ...v, chainId: 25 })),
-        56: index_1.Tokens_BSC.map(v => ({ ...v, chainId: 56 })),
-        97: index_2.Tokens_BSC_Testnet.map(v => ({ ...v, chainId: 97 })),
-        137: index_1.Tokens_Polygon.map(v => ({ ...v, chainId: 137 })),
-        338: index_2.Tokens_Cronos_Testnet.map(v => ({ ...v, chainId: 338 })),
-        31337: index_2.Tokens_Amino.map(v => ({ ...v, chainId: 31337 })),
-        80001: index_2.Tokens_Mumbai.map(v => ({ ...v, chainId: 80001 })),
-        43113: index_2.Tokens_Fuji.map(v => ({ ...v, chainId: 43113 })),
-        43114: index_1.Tokens_Avalanche.map(v => ({ ...v, chainId: 43114 })),
-        250: index_1.Tokens_Fantom.map(v => ({ ...v, chainId: 250 })),
-        4002: index_2.Tokens_Fantom_Testnet.map(v => ({ ...v, chainId: 4002 })),
-        13370: index_2.Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 })),
-        42161: index_1.Tokens_Arbitrum.map(v => ({ ...v, chainId: 42161 })),
-        421613: index_2.Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 })),
-        300: index_2.Tokens_ZK_Sepolia.map(v => { return { ...v, chainId: 300 }; }),
-        324: index_1.Tokens_ZK.map(v => { return { ...v, chainId: 324 }; }),
+        1: index_1.Tokens_Ethereuem.map(v => ({ ...v, chainId: 1 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        25: index_1.Tokens_Cronos.map(v => ({ ...v, chainId: 25 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        56: index_1.Tokens_BSC.map(v => ({ ...v, chainId: 56 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        97: index_2.Tokens_BSC_Testnet.map(v => ({ ...v, chainId: 97 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        137: index_1.Tokens_Polygon.map(v => ({ ...v, chainId: 137 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        338: index_2.Tokens_Cronos_Testnet.map(v => ({ ...v, chainId: 338 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        31337: index_2.Tokens_Amino.map(v => ({ ...v, chainId: 31337 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        80001: index_2.Tokens_Mumbai.map(v => ({ ...v, chainId: 80001 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        43113: index_2.Tokens_Fuji.map(v => ({ ...v, chainId: 43113 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        43114: index_1.Tokens_Avalanche.map(v => ({ ...v, chainId: 43114 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        250: index_1.Tokens_Fantom.map(v => ({ ...v, chainId: 250 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        4002: index_2.Tokens_Fantom_Testnet.map(v => ({ ...v, chainId: 4002 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        13370: index_2.Tokens_AminoXTestnet.map(v => ({ ...v, chainId: 13370 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        42161: index_1.Tokens_Arbitrum.map(v => ({ ...v, chainId: 42161 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        421613: index_2.Tokens_Arbitrum_Goerli.map(v => ({ ...v, chainId: 421613 })).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        300: index_2.Tokens_ZK_Sepolia.map(v => { return { ...v, chainId: 300 }; }).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] })),
+        324: index_1.Tokens_ZK.map(v => { return { ...v, chainId: 324 }; }).map(v => ({ ...v, networkCode: chainIdToNetworkCode[v.chainId] }))
     };
     exports.DefaultERC20Tokens = DefaultERC20Tokens;
     const ChainNativeTokenByChainId = {
-        1: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 1 },
-        25: { address: undefined, decimals: 18, symbol: "CRO", name: 'CRO', isNative: true, chainId: 25 },
-        56: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 56 },
-        97: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 97 },
-        137: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 137 },
-        338: { address: undefined, decimals: 18, symbol: "TCRO", name: 'TCRO', isNative: true, chainId: 338 },
-        31337: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 31337 },
-        80001: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 80001 },
-        43114: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43114 },
-        43113: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43113 },
-        250: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 250 },
-        4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 4002 },
-        13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 13370 },
-        42161: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 42161 },
-        421613: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 421613 },
-        300: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 300 },
-        324: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 324 }, // zk mainnet
+        1: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 1, networkCode: 'ETH' },
+        25: { address: undefined, decimals: 18, symbol: "CRO", name: 'CRO', isNative: true, chainId: 25, networkCode: 'CRO' },
+        56: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 56, networkCode: 'BSC' },
+        97: { address: undefined, decimals: 18, symbol: "BNB", name: 'BNB', isNative: true, chainId: 97, networkCode: 'BSC-TESTNET' },
+        137: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 137, networkCode: 'MATIC' },
+        338: { address: undefined, decimals: 18, symbol: "TCRO", name: 'TCRO', isNative: true, chainId: 338, networkCode: 'CRO-TESTNET' },
+        31337: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 31337, networkCode: 'ACT' },
+        80001: { address: undefined, decimals: 18, symbol: "MATIC", name: 'MATIC', isNative: true, chainId: 80001, networkCode: 'MUMBAI' },
+        43114: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43114, networkCode: 'AVAX' },
+        43113: { address: undefined, decimals: 18, symbol: "AVAX", name: 'AVAX', isNative: true, chainId: 43113, networkCode: 'FUJI' },
+        250: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 250, networkCode: 'FTM' },
+        4002: { address: undefined, decimals: 18, symbol: "FTM", name: 'FTM', isNative: true, chainId: 4002, networkCode: 'FTM-TESTNET' },
+        13370: { address: undefined, decimals: 18, symbol: "ACT", name: 'ACT', isNative: true, chainId: 13370, networkCode: 'ACT-TESTNET' },
+        42161: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 42161, networkCode: 'ARB' },
+        421613: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 421613, networkCode: 'ARB-GOERLI' },
+        300: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 300, networkCode: 'ZK-SEPOLIA' },
+        324: { address: undefined, decimals: 18, symbol: "ETH", name: 'ETH', isNative: true, chainId: 324, networkCode: 'ZK' }, // zk mainnet
     };
     exports.ChainNativeTokenByChainId = ChainNativeTokenByChainId;
     const WETHByChainId = Object.keys(DefaultERC20Tokens).reduce((result, key) => {
@@ -2696,6 +2715,11 @@ define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/sc
         return result;
     }, {});
     exports.DefaultTokens = DefaultTokens;
+    const DefaultTokensByNetworkCode = Object.values(ChainNativeTokenByChainId).reduce((result, token) => {
+        result[token.networkCode] = [...DefaultERC20Tokens[token.chainId], token];
+        return result;
+    }, {});
+    exports.DefaultTokensByNetworkCode = DefaultTokensByNetworkCode;
     //not adjusted for cronos and its testnet
     const ToUSDPriceFeedAddressesMap = {
         56: {
@@ -2747,7 +2771,7 @@ define("@scom/scom-token-list/tokens/index.ts", ["require", "exports", "@scom/sc
     };
     exports.tokenPriceAMMReference = tokenPriceAMMReference;
 });
-define("@scom/scom-token-list/utils.ts", ["require", "exports", "@scom/scom-token-list/tokens/index.ts"], function (require, exports, index_3) {
+define("@scom/scom-token-list/utils.ts", ["require", "exports", "@scom/scom-token-list/evmTokens/index.ts"], function (require, exports, index_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getChainNativeToken = exports.addUserTokens = exports.getUserTokens = exports.hasUserToken = exports.setUserTokens = exports.state = void 0;
@@ -2809,22 +2833,16 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TokenStore = void 0;
     class TokenStore {
-        // private _promiseMap: Record<string, Promise<any>> = {};
-        constructor(defaultTokensByChain) {
-            // private _tokenBalances: TokenBalancesType = {}; //FIXME: To be removed
+        constructor(defaultTokensByNetworkCode) {
+            this._defaultTokensByChainId = {};
             this._tokenBalancesByChainId = {};
-            // private _tokenMap: TokenMapType = {}; //FIXME: To be removed
             this._tokenMapByChainId = {};
-            this._defaultTokensByChain = defaultTokensByChain;
+            this._defaultTokensByNetworkCode = defaultTokensByNetworkCode;
+            this._defaultTokensByChainId = {};
+            for (let networkCode in defaultTokensByNetworkCode) {
+                this._defaultTokensByChainId[Number(networkCode)] = defaultTokensByNetworkCode[networkCode];
+            }
         }
-        //FIXME: To be removed
-        // public get tokenBalances() {
-        //   return this._tokenBalances;
-        // }
-        //FIXME: To be removed
-        // public get tokenMap() { 
-        //   return this._tokenMap;
-        // }
         getTokenBalancesByChainId(chainId) {
             return this._tokenBalancesByChainId[chainId];
         }
@@ -2835,8 +2853,8 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             const tokenList = [];
             if (!chainId)
                 return tokenList;
-            if (this._defaultTokensByChain && this._defaultTokensByChain[chainId]) {
-                tokenList.push(...this._defaultTokensByChain[chainId]);
+            if (this._defaultTokensByChainId && this._defaultTokensByChainId[chainId]) {
+                tokenList.push(...this._defaultTokensByChainId[chainId]);
             }
             const userCustomTokens = (0, utils_1.getUserTokens)(chainId);
             if (userCustomTokens) {
@@ -2844,21 +2862,14 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             }
             return tokenList;
         }
+        getTokenListByNetworkCode(networkCode) {
+            return this._defaultTokensByNetworkCode[networkCode];
+        }
         async getERC20Balance(wallet, token) {
             const erc20 = new eth_wallet_1.Contracts.ERC20(wallet, token);
             const balance = await erc20.balanceOf(wallet.address);
             return balance;
         }
-        // public getTokenBalance(token: ITokenObject): string {
-        //   let balance = '0';
-        //   if (!token || !this._tokenBalances) return balance;
-        //   if (token.address) {
-        //     balance = this._tokenBalances[token.address.toLowerCase()];
-        //   } else {
-        //     balance = this._tokenBalances[token.symbol];
-        //   }
-        //   return balance;
-        // }
         async _updateAllTokenBalances(wallet, erc20TokenList, nativeToken) {
             let allTokenBalancesMap = {};
             try {
@@ -2933,47 +2944,10 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             catch (error) {
             }
         }
-        //FIXME: To be removed
-        // public async updateAllTokenBalances(wallet: IRpcWallet): Promise<TokenBalancesType> {
-        //   let allTokenBalancesMap: TokenBalancesType = {};
-        //   if (this._promiseMap[wallet.instanceId]) {
-        //     return this._promiseMap[wallet.instanceId];
-        //   }
-        //   let promise = new Promise<TokenBalancesType>(async (resolve, reject) => {
-        //     try {
-        //       const tokenList = this.getTokenList(wallet.chainId);
-        //       if (!wallet.chainId || !tokenList) return allTokenBalancesMap;
-        //       const nativeToken: any = tokenList.find(v => !v.address);
-        //       const erc20TokenList = tokenList.filter(v => !!v.address);
-        //       allTokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-        //       this._tokenBalances = allTokenBalancesMap;
-        //       this._tokenBalancesByChainId[wallet.chainId] = allTokenBalancesMap;
-        //       this._promiseMap[wallet.instanceId] = null;
-        //       resolve(allTokenBalancesMap);
-        //     } catch (error) {
-        //       this._promiseMap[wallet.instanceId] = null;
-        //       reject(error);
-        //     }
-        //   })
-        //   this._promiseMap[wallet.instanceId] = promise;
-        //   return promise;
-        // }
-        //FIXME: To be removed
-        // public async updateTokenBalances(wallet: IRpcWallet, erc20TokenList: ITokenObject[]): Promise<TokenBalancesType> {
-        //   let tokenBalancesMap: TokenBalancesType = {};
-        //   if (!wallet.chainId) return tokenBalancesMap;
-        //   const nativeToken = getChainNativeToken(wallet.chainId);
-        //   tokenBalancesMap = await this._updateAllTokenBalances(wallet, erc20TokenList, nativeToken);
-        //   for (let tokenAddress of Object.keys(tokenBalancesMap)) {
-        //     this._tokenBalances[tokenAddress] = tokenBalancesMap[tokenAddress];
-        //   }
-        //   this._tokenBalancesByChainId[wallet.chainId] = this._tokenBalances;
-        //   return this._tokenBalances;
-        // }
         _updateTokenMapData(chainId) {
             let allTokensMap = {};
-            if (this._defaultTokensByChain[chainId]) {
-                let defaultTokenList = this._defaultTokensByChain[chainId].sort((a, b) => {
+            if (this._defaultTokensByChainId[chainId]) {
+                let defaultTokenList = this._defaultTokensByChainId[chainId].sort((a, b) => {
                     if (a.symbol.toLowerCase() < b.symbol.toLowerCase()) {
                         return -1;
                     }
@@ -2998,12 +2972,32 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
         }
         updateTokenMapData(chainId) {
             let allTokensMap = this._updateTokenMapData(chainId);
-            // this._tokenMap = allTokensMap;
             this._tokenMapByChainId[chainId] = allTokensMap;
             return allTokensMap;
         }
     }
     exports.TokenStore = TokenStore;
+});
+define("@scom/scom-token-list/tonTokens/index.ts", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.DefaultTokensByNetworkCode = void 0;
+    const DefaultTokensByNetworkCode = {
+        'TON': [
+            {
+                name: 'Toncoin',
+                symbol: 'TON',
+                decimals: 9
+            },
+            {
+                name: 'USDT',
+                symbol: 'USDT',
+                decimals: 6,
+                address: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs'
+            }
+        ].map(v => ({ ...v, chainId: 0, networkCode: 'TON' })),
+    };
+    exports.DefaultTokensByNetworkCode = DefaultTokensByNetworkCode;
 });
 define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/components"], function (require, exports, components_1) {
     "use strict";
@@ -3032,15 +3026,23 @@ define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/compo
         42161: "arbitrum",
         421613: "arbitrum-goerli",
     };
+    const CommonTokenPathMap = {
+        'USDT': 'img/tokens/USDT.png'
+    };
     function tokenPath(tokenObj, chainId) {
         return fullPath(getTokenIconPath(tokenObj, chainId));
     }
     const getTokenIconPath = (tokenObj, chainId) => {
         const pathPrefix = 'img/tokens';
-        if (tokenObj && chainId >= 0) {
-            let folderName = TokenFolderName[chainId];
-            let fileName = (!tokenObj.isNative ? tokenObj.address.toLowerCase() : tokenObj.symbol) + '.png';
-            return `${pathPrefix}/${folderName}/${fileName}`;
+        if (tokenObj) {
+            if (CommonTokenPathMap[tokenObj.symbol]) {
+                return CommonTokenPathMap[tokenObj.symbol];
+            }
+            else if (chainId >= 0) {
+                let folderName = TokenFolderName[chainId];
+                let fileName = (!tokenObj.isNative ? tokenObj.address.toLowerCase() : tokenObj.symbol) + '.png';
+                return `${pathPrefix}/${folderName}/${fileName}`;
+            }
         }
         else {
             return `${pathPrefix}/Custom.png`;
@@ -3053,10 +3055,10 @@ define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/compo
         fallbackUrl: fullPath('img/tokens/Custom.png')
     };
 });
-define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/token.ts", "@scom/scom-token-list/utils.ts", "@scom/scom-token-list/tokens/index.ts", "@scom/scom-token-list/assets.ts"], function (require, exports, token_1, utils_2, index_4, assets_1) {
+define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/token.ts", "@scom/scom-token-list/utils.ts", "@scom/scom-token-list/evmTokens/index.ts", "@scom/scom-token-list/tonTokens/index.ts", "@scom/scom-token-list/assets.ts"], function (require, exports, token_1, utils_2, index_4, index_5, assets_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.WETHByChainId = exports.DefaultTokens = exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = void 0;
+    exports.tokenPriceAMMReference = exports.ToUSDPriceFeedAddressesMap = exports.WETHByChainId = exports.DefaultTokensByNetworkCode = exports.DefaultTokens = exports.assets = exports.setTokenStore = exports.tokenStore = exports.ChainNativeTokenByChainId = exports.DefaultERC20Tokens = exports.addUserTokens = exports.setUserTokens = exports.hasUserToken = void 0;
     Object.defineProperty(exports, "hasUserToken", { enumerable: true, get: function () { return utils_2.hasUserToken; } });
     Object.defineProperty(exports, "setUserTokens", { enumerable: true, get: function () { return utils_2.setUserTokens; } });
     Object.defineProperty(exports, "addUserTokens", { enumerable: true, get: function () { return utils_2.addUserTokens; } });
@@ -3067,8 +3069,13 @@ define("@scom/scom-token-list", ["require", "exports", "@scom/scom-token-list/to
     Object.defineProperty(exports, "ToUSDPriceFeedAddressesMap", { enumerable: true, get: function () { return index_4.ToUSDPriceFeedAddressesMap; } });
     Object.defineProperty(exports, "tokenPriceAMMReference", { enumerable: true, get: function () { return index_4.tokenPriceAMMReference; } });
     exports.assets = assets_1.default;
-    let tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
+    const DefaultTokensByNetworkCode = {
+        ...index_4.DefaultTokensByNetworkCode,
+        ...index_5.DefaultTokensByNetworkCode
+    };
+    exports.DefaultTokensByNetworkCode = DefaultTokensByNetworkCode;
+    let tokenStore = new token_1.TokenStore(DefaultTokensByNetworkCode);
     exports.tokenStore = tokenStore;
-    const setTokenStore = () => exports.tokenStore = tokenStore = new token_1.TokenStore(index_4.DefaultTokens);
+    const setTokenStore = () => exports.tokenStore = tokenStore = new token_1.TokenStore(DefaultTokensByNetworkCode);
     exports.setTokenStore = setTokenStore;
 });
