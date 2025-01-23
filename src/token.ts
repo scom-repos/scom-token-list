@@ -15,7 +15,8 @@ export class TokenStore {
     this._defaultTokensByNetworkCode = defaultTokensByNetworkCode;
     this._defaultTokensByChainId = {};
     for (let networkCode in defaultTokensByNetworkCode) {
-      this._defaultTokensByChainId[Number(networkCode)] = defaultTokensByNetworkCode[networkCode];
+      let chainId = defaultTokensByNetworkCode[networkCode][0]?.chainId;
+      this._defaultTokensByChainId[chainId] = defaultTokensByNetworkCode[networkCode];
     }
   }
 
