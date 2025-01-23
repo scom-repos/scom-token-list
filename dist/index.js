@@ -2840,7 +2840,8 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             this._defaultTokensByNetworkCode = defaultTokensByNetworkCode;
             this._defaultTokensByChainId = {};
             for (let networkCode in defaultTokensByNetworkCode) {
-                this._defaultTokensByChainId[Number(networkCode)] = defaultTokensByNetworkCode[networkCode];
+                let chainId = defaultTokensByNetworkCode[networkCode][0]?.chainId;
+                this._defaultTokensByChainId[chainId] = defaultTokensByNetworkCode[networkCode];
             }
         }
         getTokenBalancesByChainId(chainId) {
