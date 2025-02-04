@@ -24,7 +24,13 @@ const DefaultTokensByNetworkCode: Record<string, ITokenObject[]> = {
             symbol: 'USDT',
             decimals: 6,
             address: 'kQD0GKBM8ZbryVk2aESmzfU6b9b_8era_IkvBSELujFZPsyy'
-        }        
+        },
+        {
+            name: 'tgBTC',
+            symbol: 'tgBTC',
+            decimals: 8,
+            address: 'kQDoy1cUAbGq253vwfoPcqSloODVAWkDBniR12PJFUHnK6Yf'
+        }   
     ].map(v => ({ ...v, chainId: 0, networkCode: 'TON-TESTNET' })),
 }
 
