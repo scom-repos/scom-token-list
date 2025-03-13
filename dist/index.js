@@ -2293,9 +2293,9 @@ define("@scom/scom-token-list/evmTokens/testnet/fuji.ts", ["require", "exports"]
             "decimals": 6
         },
         {
-            "name": "$SCOM",
+            "name": "SCOM",
             "address": "0xf5debAAcB2Df6854D16BFD51cC12E5c0C4a51Ba9",
-            "symbol": "$SCOM",
+            "symbol": "SCOM",
             "decimals": 18
         },
         {
