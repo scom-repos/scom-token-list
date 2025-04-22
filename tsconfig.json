@@ -1,18 +1,19 @@
 {    
     "compilerOptions": {
-        "target": "ES2017",        
-        "moduleResolution": "Node",
-        "module": "AMD",
-        "experimentalDecorators": true,        
-        "jsx": "react",      
-        "jsxFactory": "global.$render",
-        "jsxFragmentFactory": "global.$render",
-        "esModuleInterop": true,        
-        "forceConsistentCasingInFileNames": true,        
-        "declaration": false,        
+        "target": "es2017",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "removeComments": true,
+        "declarationDir": "types",
+        "declaration": true,
+        "outDir": "lib",
         "baseUrl": ".",
-        "outFile": "dist/index.js"
+        "paths": {
+            "@ijstech/components": ["node_modules/@ijstech/components"]
+        }
     },
-    "include": ["src/*.tsx", "src/*.ts"],
+    "include": [
+        "src/**/*"
+    ],
     "exclude": ["node_modules"]
 }
