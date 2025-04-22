@@ -3019,10 +3019,14 @@ define("@scom/scom-token-list/tonTokens/index.ts", ["require", "exports"], funct
     };
     exports.DefaultTokensByNetworkCode = DefaultTokensByNetworkCode;
 });
-define("@scom/scom-token-list/assets.ts", ["require", "exports", "@ijstech/components"], function (require, exports, components_1) {
+define("@scom/scom-token-list/assets.ts", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const moduleDir = components_1.application.currentModuleDir;
+    let moduleDir = '';
+    if (typeof window !== 'undefined') {
+        const application = window['application'];
+        moduleDir = application.currentModuleDir;
+    }
     function fullPath(path) {
         return `${moduleDir}/${path}`;
     }
