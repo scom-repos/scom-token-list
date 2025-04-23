@@ -2793,7 +2793,7 @@ define("@scom/scom-token-list/utils.ts", ["require", "exports", "@scom/scom-toke
     };
     exports.hasUserToken = hasUserToken;
     const getUserTokens = (chainId) => {
-        let tokens = localStorage[TOKENS + chainId];
+        let tokens = typeof window !== 'undefined' ? localStorage[TOKENS + chainId] : null;
         if (tokens) {
             tokens = JSON.parse(tokens);
         }
@@ -2808,7 +2808,7 @@ define("@scom/scom-token-list/utils.ts", ["require", "exports", "@scom/scom-toke
     };
     exports.getUserTokens = getUserTokens;
     const addUserTokens = (chainId, token) => {
-        let tokens = localStorage[TOKENS + chainId];
+        let tokens = typeof window !== 'undefined' ? localStorage[TOKENS + chainId] : null;
         let i = -1;
         if (tokens) {
             tokens = JSON.parse(tokens);
@@ -2820,7 +2820,9 @@ define("@scom/scom-token-list/utils.ts", ["require", "exports", "@scom/scom-toke
         if (i == -1) {
             tokens.push(token);
         }
-        localStorage[TOKENS + chainId] = JSON.stringify(tokens);
+        if (typeof window !== 'undefined') {
+            localStorage[TOKENS + chainId] = JSON.stringify(tokens);
+        }
     };
     exports.addUserTokens = addUserTokens;
     const getChainNativeToken = (chainId) => {
