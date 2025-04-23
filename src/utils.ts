@@ -20,7 +20,7 @@ export const hasUserToken = (address: string, chainId: number) => {
 }
 
 export const getUserTokens:(chainId: number) => any[] | null = (chainId: number) => {
-  let tokens = localStorage[TOKENS + chainId];
+  let tokens = typeof window !== 'undefined' ? localStorage[TOKENS + chainId] : null;
   if (tokens) {
     tokens = JSON.parse(tokens);
   } else {
@@ -34,7 +34,7 @@ export const getUserTokens:(chainId: number) => any[] | null = (chainId: number)
 }
 
 export const addUserTokens = (chainId: number, token: ITokenObject) => {
-  let tokens = localStorage[TOKENS + chainId];
+  let tokens = typeof window !== 'undefined' ? localStorage[TOKENS + chainId] : null;
   let i = -1;
   if (tokens) {
     tokens = JSON.parse(tokens);
@@ -45,7 +45,9 @@ export const addUserTokens = (chainId: number, token: ITokenObject) => {
   if (i == -1) {
     tokens.push(token);
   }
-  localStorage[TOKENS + chainId] = JSON.stringify(tokens);
+  if (typeof window !== 'undefined') {
+    localStorage[TOKENS + chainId] = JSON.stringify(tokens);
+  }
 }
 
 export const getChainNativeToken = (chainId: number): ITokenObject => {
