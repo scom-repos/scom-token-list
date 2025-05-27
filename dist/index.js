@@ -2878,18 +2878,19 @@ define("@scom/scom-token-list/token.ts", ["require", "exports", "@ijstech/eth-wa
             try {
                 const erc20 = new eth_wallet_1.Contracts.ERC20(wallet);
                 await wallet.init(); //FIXME: this is a workaround until encodeFunctionCall gets rid of web3.js
-                const data = wallet.encodeFunctionCall(erc20, 'balanceOf', [wallet.address]);
-                const result = await wallet.multiCall(erc20TokenList.map((v) => {
+                const results = await wallet.doMulticall(erc20TokenList.map((v) => {
                     return {
+                        contract: erc20,
+                        methodName: 'balanceOf',
                         to: v.address,
-                        data
+                        params: [wallet.address],
                     };
                 }));
-                if (result) {
+                if (results?.length > 0) {
                     for (let i = 0; i < erc20TokenList.length; i++) {
                         const token = erc20TokenList[i];
                         if (token.address) {
-                            allTokenBalancesMap[token.address.toLowerCase()] = new eth_wallet_1.BigNumber(result.results[i]).shiftedBy(-token.decimals).toFixed();
+                            allTokenBalancesMap[token.address.toLowerCase()] = new eth_wallet_1.BigNumber(results[i]).shiftedBy(-token.decimals).toFixed();
                         }
                     }
                     let balance = (await wallet.balance).toFixed();
